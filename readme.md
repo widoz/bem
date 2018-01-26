@@ -1,5 +1,6 @@
-# Unprefix BEM Scope Library
+[![Build Status](https://travis-ci.org/widoz/bem.svg?branch=master)](https://travis-ci.org/widoz/bem)
 
+# Unprefix BEM Scope Library
 
 ## What is BEM
 
