@@ -1,5 +1,5 @@
 {
-    "name": "unprefix/bemscope",
+    "name": "unprefix/bem",
     "description": "Bem convention as class",
     "type": "library",
     "license": "GPL-2.0-only",
