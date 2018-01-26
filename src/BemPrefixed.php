@@ -115,17 +115,20 @@ final class BemPrefixed implements Bem, Prefix
             $scope .= "__{$this->element}";
         }
 
-        /**
-         * Scope Filter
-         *
-         * Filter the scope string before it is returned.
-         *
-         * @since 1.0.0 3.0.0
-         *
-         * @param string   $scope The scope prefix. Default 'upx'.
-         * @param Bem $this  The instance of the class.
-         */
-        $scope = apply_filters('unprefix_scope_attribute', $scope, $this);
+        // Allow to be used outside of WordPress.
+        if (function_exists('apply_filters')) {
+            /**
+             * Scope Filter
+             *
+             * Filter the scope string before it is returned.
+             *
+             * @since 1.0.0 3.0.0
+             *
+             * @param string $scope The scope prefix. Default 'upx'.
+             * @param Bem    $this  The instance of the class.
+             */
+            $scope = apply_filters('unprefix_scope_attribute', $scope, $this);
+        }
 
         // Sanitize the class name.
         $scope = array_map('sanitize_html_class', explode(' ', $scope));
