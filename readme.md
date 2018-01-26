@@ -2,7 +2,7 @@
 
 # Unprefix BEM Scope Library
 
-##:closed_book: What is BEM
+:closed_book: ##What is BEM
 
 BEM — Block Element Modifier is a methodology that helps you to create reusable components and code sharing in front-end development.
 
@@ -25,7 +25,7 @@ Example
 
 For more information have a look at: [getbem](http://getbem.com/)
 
-##:closed_book: How to use it
+:closed_book: ##How to use it
 
 To use the bem scope you must create a instance of the `BemScopePrefixed` then it's possible to retrieve
 the `scope` string or if you want every single part of the `BEM`.
@@ -101,11 +101,11 @@ $bem = new \Unprefix\Bem\BemPrefixed('block', 'element', [], 'prefix');
 echo $bem->scope();
 ```
 
-##:bug: Bugs
+:bug: ##Bugs
 
 To report a bug simply open an [issue on github project](https://github.com/widoz/bem/issues)
 
-##:closed_book: License
+:closed_book: ##License
 
 The library is released under GPL-2 Gnu General Public License.
 
