@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/widoz/bem.svg?branch=master)](https://travis-ci.org/widoz/bem)
+[![codecov](https://codecov.io/gh/widoz/bem/branch/master/graph/badge.svg)](https://codecov.io/gh/widoz/bem)
 
 # Unprefix BEM Scope Library
 
