@@ -2,7 +2,7 @@
 
 # Unprefix BEM Scope Library
 
-:closed_book: ##What is BEM
+## What is BEM
 
 BEM — Block Element Modifier is a methodology that helps you to create reusable components and code sharing in front-end development.
 
@@ -25,7 +25,7 @@ Example
 
 For more information have a look at: [getbem](http://getbem.com/)
 
-:closed_book: ##How to use it
+## How it works
 
 To use the bem scope you must create a instance of the `BemScopePrefixed` then it's possible to retrieve
 the `scope` string or if you want every single part of the `BEM`.
@@ -54,7 +54,7 @@ the *element* is ignored.
 
 This is right and in line with the BEM requirements. Infact isn't possible to have a BEM string like `block block--modifier__element`.
 
-###Add more than one modifier
+### Add more than one modifier
 
 It's possible to pass more than one modifier as you can see by the type hint of the class.
 
@@ -71,7 +71,7 @@ No checks are made to the string for *block*, *element* or *modifiers* so, strin
 
 So, passing the correct value is completely up to you.
 
-###Retrieve properties.
+### Retrieve properties.
 
 To retrieve properties, simply ask for them.
 
@@ -88,7 +88,7 @@ $element = $bem->element();
 $modifiers = $bem->modifiers();
 ```
 
-###About the Prefix
+### About the Prefix
 
 It's a common way to prefix the css classes to prevent conflict with other libraries.
 
@@ -101,11 +101,11 @@ $bem = new \Unprefix\Bem\BemPrefixed('block', 'element', [], 'prefix');
 echo $bem->scope();
 ```
 
-:bug: ##Bugs
+## Bugs
 
 To report a bug simply open an [issue on github project](https://github.com/widoz/bem/issues)
 
-:closed_book: ##License
+## License
 
 The library is released under GPL-2 Gnu General Public License.
 
