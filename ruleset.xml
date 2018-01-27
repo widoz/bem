@@ -70,6 +70,7 @@
 
     <!--
     Object Calisthenics
+    See https://github.com/object-calisthenics/phpcs-calisthenics-rules
     -->
     <rule ref="ObjectCalisthenics.Metrics.MaxNestingLevel">
         <properties>
