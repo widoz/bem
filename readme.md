@@ -1,7 +1,29 @@
 [![Build Status](https://travis-ci.org/widoz/bem.svg?branch=master)](https://travis-ci.org/widoz/bem)
 [![codecov](https://codecov.io/gh/widoz/bem/branch/master/graph/badge.svg)](https://codecov.io/gh/widoz/bem)
 
-# Unprefix BEM Scope Library
+# Unprefix BEM Library
+
+Unprefix Bem is a library that allow you to define BEM style class attribute values to use in your markup.
+
+Let for example you want to include a class attribute value into your html tag.
+You can do it by using the library.
+
+```html
+<div class="<?php echo $bem->scope() ?>>
+    <!-- your content here -->
+</div>
+```
+
+The library works with WordPress but also as a standalone library to use in your project.
+
+If you use it into your WordPress project you can take advantage of the `unprefix_scope_attribute` filter allowing you
+to manipulate the bem string depending on your needs.
+
+It's is possible to retrieve the entire class value such as the block, element and modifiers singularly.
+
+## Requirements
+
+PHP >= 7.0.0
 
 ## What is BEM
 
