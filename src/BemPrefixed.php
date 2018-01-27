@@ -5,7 +5,7 @@ declare(strict_types=1);
  * BemPrefixed
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
- * @package   Unprefix\Scope
+ * @package   Unprefix\Bem
  * @copyright Copyright (c) 2017, Guido Scialfa
  * @license   GNU General Public License, version 2
  *
@@ -32,7 +32,7 @@ namespace Unprefix\Bem;
  * Class BemPrefixed
  *
  * @since   1.0.0
- * @package Unprefix\Scope
+ * @package Unprefix\Bem
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
 final class BemPrefixed implements Bem, Prefix
@@ -122,7 +122,7 @@ final class BemPrefixed implements Bem, Prefix
              *
              * Filter the scope string before it is returned.
              *
-             * @since 1.0.0 3.0.0
+             * @since 1.0.0
              *
              * @param string $scope The scope prefix. Default 'upx'.
              * @param Bem    $this  The instance of the class.
