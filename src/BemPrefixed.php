@@ -131,9 +131,7 @@ final class BemPrefixed implements Bem, Prefix
         }
 
         // Sanitize the class name.
-        $scope = array_map('sanitize_html_class', explode(' ', $scope));
-        // Convert to a string.
-        $scope = implode(' ', $scope);
+        $scope = $this->sanitizeHtmlClass($scope);
         // Clean multiple spaces.
         $scope = preg_replace('/\s{2,}/', ' ', $scope);
 
@@ -210,5 +208,37 @@ final class BemPrefixed implements Bem, Prefix
         $scope = preg_replace('/\s{2,}/', ' ', $scopeModified);
 
         return $scope;
+    }
+
+    /**
+     * Sanitize Html Class
+     *
+     * The fallback code is partially get from WordPress `sanitize_html_class` function.
+     *
+     * @since 1.0.0
+     *
+     * @param string $class The class string to sanitize.
+     *
+     * @return string The sanitize html class string
+     */
+    private function sanitizeHtmlClass(string $class): string
+    {
+        $classes = explode(' ', $class);
+
+        if (function_exists('sanitize_html_class')) {
+            return implode(' ', array_map('sanitize_html_class', $classes));
+        }
+
+        $classes = array_map(function (string $class): string {
+            // Strip out any % encoded octets.
+            // Limit to A-Z,a-z,0-9,_,-.
+            return preg_replace(
+                '/[^A-Za-z0-9_-]/',
+                '',
+                preg_replace('|%[a-fA-F0-9][a-fA-F0-9]|', '', $class)
+            );
+        }, $classes);
+
+        return implode(' ', $classes);
     }
 }
