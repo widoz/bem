@@ -9,7 +9,7 @@ Let for example you want to include a class attribute value into your html tag.
 You can do it by using the library.
 
 ```html
-<div class="<?php echo $bem->scope() ?>>
+<div class="<?php echo $bem->scope() ?>">
     <!-- your content here -->
 </div>
 ```
