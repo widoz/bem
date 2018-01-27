@@ -44,7 +44,7 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @var string The block part of the attribute string
      */
-    private $block;
+    protected $block;
 
     /**
      * Element
@@ -53,7 +53,7 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @var string The element part of the attribute string
      */
-    private $element;
+    protected $element;
 
     /**
      * Modifier
@@ -62,7 +62,7 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @var string[] The array contains the modifier strings
      */
-    private $modifiers;
+    protected $modifiers;
 
     /**
      * The Prefix
@@ -73,7 +73,7 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @var string The prefix to use in conjunction to the block scope
      */
-    private $prefix;
+    protected $prefix;
 
     /**
      * ScopeAttribute constructor
@@ -189,7 +189,7 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @return string The new scope
      */
-    private function applyModifierToScope(string $scope): string
+    protected function applyModifierToScope(string $scope): string
     {
         $scopeModified = array_reduce(
             $this->modifiers,
