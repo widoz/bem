@@ -35,7 +35,7 @@ namespace Unprefix\Bem;
  * @package Unprefix\Scope
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
-final class BemPrefixed implements Bem, Prefix
+class BemPrefixed implements Bem, Prefix
 {
     /**
      * Block
