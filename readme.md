@@ -9,14 +9,14 @@ Let for example you want to include a class attribute value into your html tag.
 You can do it by using the library.
 
 ```html
-<div class="<?php echo $bem->scope() ?>">
+<div class="<?php echo $bem->value() ?>">
     <!-- your content here -->
 </div>
 ```
 
 The library works with WordPress but also as a standalone library to use in your project.
 
-If you use it into your WordPress project you can take advantage of the `unprefix_scope_attribute` filter allowing you
+If you use it into your WordPress project you can take advantage of the `unprefix_bem` filter allowing you
 to manipulate the bem string depending on your needs.
 
 It's is possible to retrieve the entire class value such as the block, element and modifiers singularly.
@@ -50,12 +50,12 @@ For more information have a look at: [getbem](http://getbem.com/)
 
 ## How it works
 
-To use the bem scope you must create a instance of the `BemScopePrefixed` then it's possible to retrieve
-the `scope` string or if you want every single part of the `BEM`.
+To use the bem value you must create a instance of the `BemPrefixed` then it's possible to retrieve
+the `bem` string or if you want every single part of the `BEM`.
 
 It is possible to pass a `prefix` to the constructor to prevent collisions with other classes.
 
-The `BemScopePrefixed` class implements the magic method `__toString` so it's possible to get the scope
+The `BemPrefixed` class implements the magic method `__toString` so it's possible to get the bem value
 directly from the instance.
 
 ```php
@@ -68,7 +68,7 @@ $bem = new \Unprefix\Bem\BemPrefixed(
 );
 
 // Output: block block--modifier
-echo $bem->scope();
+echo $bem->value();
 ```
 
 **Note:**
@@ -87,7 +87,7 @@ So for example, the following code will output `block block--modifier-one block-
 $bem = new \Unprefix\Bem\BemPrefixed('block', '', ['modifier-one', 'modifier-two']);
 
 // Will output block block--modifier-one block--modifier-two.
-echo $bem->scope();
+echo $bem->value();
 ```
 
 No checks are made to the string for *block*, *element* or *modifiers* so, strings like `block--name` or `block--modifier__element` are valid `block` strings along as *element* or *modifiers*.
@@ -121,7 +121,7 @@ The BemPrefixed (as the name says) support prefixes.
 $bem = new \Unprefix\Bem\BemPrefixed('block', 'element', [], 'prefix');
 
 // Will output 'prefixblock__element'.
-echo $bem->scope();
+echo $bem->value();
 ```
 
 ## Bugs
