@@ -100,7 +100,7 @@ final class BemPrefixed implements Bem, Prefix
     /**
      * @inheritdoc
      */
-    public function scope(): string
+    public function value(): string
     {
         // The Scope prefix.
         $scope = $this->prefix . $this->block;

@@ -33,7 +33,7 @@ namespace Unprefix\Bem;
  * @package Unprefix\Bem
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
-interface Bem extends Scope
+interface Bem extends Value
 {
     /**
      * Block

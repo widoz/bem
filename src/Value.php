@@ -1,6 +1,6 @@
 <?php
 /**
- * Scope Attribute
+ * Call Value Attribute
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
  * @package   Unprefix\Bem
@@ -27,22 +27,22 @@
 namespace Unprefix\Bem;
 
 /**
- * Class Scope
+ * Class Value
  *
  * @since   1.0.0
- * @package Unprefix\Bem\Scope
+ * @package Unprefix\Bem\Value
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
-interface Scope
+interface Value
 {
     /**
-     * Get Scope Class
+     * Get Value
      *
      * @since 1.0.0
      *
-     * @return string $upxscope The scope class
+     * @return string The class attribute value
      */
-    public function scope(): string;
+    public function value(): string;
 
     /**
      * To String

@@ -47,7 +47,7 @@ class BemPrefixedTest extends UnprefixTestCase
 
         $sut = new BemPrefixed('block', 'element', []);
 
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertInternalType('string', $scope);
     }
@@ -60,7 +60,7 @@ class BemPrefixedTest extends UnprefixTestCase
             ->returnArg(1);
 
         $sut   = new BemPrefixed('block', 'element', []);
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertSame('block__element', $scope);
     }
@@ -73,7 +73,7 @@ class BemPrefixedTest extends UnprefixTestCase
             ->returnArg(1);
 
         $sut   = new BemPrefixed('block', 'element', ['modifier']);
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertSame('block block--modifier', $scope);
     }
@@ -87,7 +87,7 @@ class BemPrefixedTest extends UnprefixTestCase
 
         $sut = new BemPrefixed('block', 'element', []);
 
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertContains('__', $scope);
     }
@@ -101,7 +101,7 @@ class BemPrefixedTest extends UnprefixTestCase
 
         $sut = new BemPrefixed('block', '', ['modifier']);
 
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertContains('--', $scope);
     }
@@ -115,7 +115,7 @@ class BemPrefixedTest extends UnprefixTestCase
 
         $sut = new BemPrefixed('block', 'element', ['modifier']);
 
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertNotContains('element', $scope);
     }
@@ -130,9 +130,9 @@ class BemPrefixedTest extends UnprefixTestCase
         $sut   = new BemPrefixed(
             'block',
             'element',
-            array('modifier', 'another-modifier', 'third-modifier')
+            ['modifier', 'another-modifier', 'third-modifier']
         );
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertSame(
             'block block--modifier block--another-modifier block--third-modifier',
@@ -151,7 +151,7 @@ class BemPrefixedTest extends UnprefixTestCase
             ->returnArg(1);
 
         $sut   = new BemPrefixed('block', 'element', [$actual]);
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertSame('block block--' . $expected, $scope);
     }
@@ -179,7 +179,7 @@ class BemPrefixedTest extends UnprefixTestCase
 
         $sut = new BemPrefixed('block', '', ['modifier', 'modifier2']);
 
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertSame('block block--modifier block--modifier2', $scope);
     }
@@ -198,7 +198,7 @@ class BemPrefixedTest extends UnprefixTestCase
 
         $sut = new BemPrefixed('block', '', array('modifier', 'modifier2'), '');
 
-        $scope = $sut->scope();
+        $scope = $sut->value();
 
         $this->assertSame('block block--modifier block--modifier2', $scope);
     }
