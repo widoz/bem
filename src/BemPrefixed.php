@@ -176,7 +176,7 @@ final class BemPrefixed implements Bem, Prefix
      */
     public function __toString(): string
     {
-        return $this->scope();
+        return $this->value();
     }
 
     /**
