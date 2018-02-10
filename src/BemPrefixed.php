@@ -71,30 +71,31 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @since 1.0.0
      *
-     * @var string The prefix to use in conjunction to the block scope
+     * @var string The prefix to use in conjunction to the block value
      */
     private $prefix;
 
     /**
-     * ScopeAttribute constructor
+     * BemPrefixed constructor
      *
      * @since 1.0.0
      *
-     * @param string $block     The block part of the attribute string.
-     * @param string $element   The element part of the attribute string.
-     * @param array  $modifiers The array contains the modifier strings.
-     * @param string $prefix    The prefix to use in conjunction to the block scope.
+     * @param string $block The block part of the attribute string.
+     * @param string $element The element part of the attribute string.
+     * @param array $modifiers The array contains the modifier strings.
+     * @param string $prefix The prefix to use in conjunction to the block value.
      */
     public function __construct(
         string $block,
         string $element = '',
         array $modifiers = [],
         string $prefix = ''
-    ) {
-        $this->block     = $block;
-        $this->element   = $element;
+    )
+    {
+        $this->block = $block;
+        $this->element = $element;
         $this->modifiers = $modifiers;
-        $this->prefix    = $prefix;
+        $this->prefix = $prefix;
     }
 
     /**
@@ -103,16 +104,16 @@ final class BemPrefixed implements Bem, Prefix
     public function value(): string
     {
         // The Scope prefix.
-        $scope = $this->prefix . $this->block;
+        $bem = $this->prefix . $this->block;
 
         // Apply the modifiers.
         if ($this->modifiers) {
-            $scope = $this->applyModifierToScope($scope);
+            $bem = $this->applyModifierToValue($bem);
         }
 
         // Apply the element.
-        if (! $this->modifiers and $this->element) {
-            $scope .= "__{$this->element}";
+        if (!$this->modifiers and $this->element) {
+            $bem .= "__{$this->element}";
         }
 
         // Allow to be used outside of WordPress.
@@ -125,17 +126,17 @@ final class BemPrefixed implements Bem, Prefix
              * @since 1.0.0
              *
              * @param string $scope The scope prefix. Default 'upx'.
-             * @param Bem    $this  The instance of the class.
+             * @param Bem $this The instance of the class.
              */
-            $scope = apply_filters('unprefix_scope_attribute', $scope, $this);
+            $bem = apply_filters('unprefix_scope_attribute', $bem, $this);
         }
 
         // Sanitize the class name.
-        $scope = $this->sanitizeHtmlClass($scope);
+        $bem = $this->sanitizeHtmlClass($bem);
         // Clean multiple spaces.
-        $scope = preg_replace('/\s{2,}/', ' ', $scope);
+        $bem = preg_replace('/\s{2,}/', ' ', $bem);
 
-        return $scope;
+        return $bem;
     }
 
     /**
@@ -183,31 +184,31 @@ final class BemPrefixed implements Bem, Prefix
      *
      * @since 1.0.0
      *
-     * @param string $scope The scope to which apply the modifiers.
+     * @param string $value The value to which apply the modifiers.
      *
-     * @return string The new scope
+     * @return string The new bem value
      */
-    private function applyModifierToScope(string $scope): string
+    private function applyModifierToValue(string $value): string
     {
         $scopeModified = array_reduce(
             $this->modifiers,
-            function (string $carry, string $item) use ($scope): string {
+            function (string $carry, string $item) use ($value): string {
                 // Sanitize modifier.
                 $item = preg_replace('/[^a-z0-9\-]/', '-', $item);
 
                 if ($item) {
-                    $carry .= ' ' . $scope . "--{$item}";
+                    $carry .= ' ' . $value . "--{$item}";
                 }
 
                 return $carry;
             },
-            $scope
+            $value
         );
 
         // Normalize spaces.
-        $scope = preg_replace('/\s{2,}/', ' ', $scopeModified);
+        $value = preg_replace('/\s{2,}/', ' ', $scopeModified);
 
-        return $scope;
+        return $value;
     }
 
     /**
