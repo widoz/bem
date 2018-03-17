@@ -7,7 +7,7 @@ install:
     composer install
 
 script:
-    - vendor/bin/phpunit --coverage-clover=coverage/report/coverage.xml --bootstrap=tests/bootstrap.php.dist --configuration=tests/phpunit.xml
+    - vendor/bin/phpunit --coverage-clover=../coverage/report/coverage.xml --bootstrap=tests/bootstrap.php.dist --configuration=tests/phpunit.xml tests/
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
