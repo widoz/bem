@@ -24,10 +24,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Unprefix\\BemScope\\": "src",
-            "Unprefix\\Tests\\": "tests",
-            "Unprefix\\Tests\\Unit\\": "tests/php/unit/src",
-            "Unprefix\\Tests\\Integration\\": "tests/php/integration/src"
+            "Unprefix\\Tests\\": "tests/",
+            "Unprefix\\Tests\\Unit\\": "tests/unit/"
         }
     },
     "optimize-autoloader": true,

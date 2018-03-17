@@ -10,12 +10,12 @@
         stopOnFailure="true">
     <testsuites>
         <testsuite>
-            <directory suffix="Test.php">./tests/php/unit/src/</directory>
+            <directory suffix="Test.php">./tests/unit/</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">./src/</directory>
             <file>./</file>
         </whitelist>
     </filter>
