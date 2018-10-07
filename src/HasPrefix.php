@@ -29,16 +29,13 @@ namespace Widoz\Bem;
 /**
  * Class Prefix
  *
- * @since   1.0.0
  * @package Widoz\Bem
- * @author  Guido Scialfa <dev@guidoscialfa.com>
+ * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-interface Prefix
+interface HasPrefix
 {
     /**
      * Prefix
-     *
-     * @since 1.0.0
      *
      * @return string The prefix
      */

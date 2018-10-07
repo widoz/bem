@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="Bem">
+
+    <description>Bem</description>
+
+    <file>./src</file>
+
+    <rule ref="Inpsyde"/>
+
+</ruleset>

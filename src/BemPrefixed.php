@@ -31,16 +31,13 @@ namespace Widoz\Bem;
 /**
  * Class BemPrefixed
  *
- * @since   1.0.0
  * @package Widoz\Bem
- * @author  Guido Scialfa <dev@guidoscialfa.com>
+ * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-final class BemPrefixed implements Bem, Prefix
+final class BemPrefixed implements Bem, HasPrefix
 {
     /**
      * Block
-     *
-     * @since 1.0.0
      *
      * @var string The block part of the attribute string
      */
@@ -49,16 +46,12 @@ final class BemPrefixed implements Bem, Prefix
     /**
      * Element
      *
-     * @since 1.0.0
-     *
      * @var string The element part of the attribute string
      */
     private $element;
 
     /**
      * Modifier
-     *
-     * @since 1.0.0
      *
      * @var string[] The array contains the modifier strings
      */
@@ -69,16 +62,12 @@ final class BemPrefixed implements Bem, Prefix
      *
      * To avoid conflicts
      *
-     * @since 1.0.0
-     *
      * @var string The prefix to use in conjunction to the block value
      */
     private $prefix;
 
     /**
      * BemPrefixed constructor
-     *
-     * @since 1.0.0
      *
      * @param string $block The block part of the attribute string.
      * @param string $element The element part of the attribute string.
@@ -90,8 +79,8 @@ final class BemPrefixed implements Bem, Prefix
         string $element = '',
         array $modifiers = [],
         string $prefix = ''
-    )
-    {
+    ) {
+
         $this->block = $block;
         $this->element = $element;
         $this->modifiers = $modifiers;
@@ -122,8 +111,6 @@ final class BemPrefixed implements Bem, Prefix
              * Bem Filter
              *
              * Filter the value string before it is returned.
-             *
-             * @since 1.0.0
              *
              * @param string $bem The bem value.
              * @param Bem $this The instance of the class.
@@ -182,8 +169,6 @@ final class BemPrefixed implements Bem, Prefix
     /**
      * Apply Modifier to Scope
      *
-     * @since 1.0.0
-     *
      * @param string $value The value to which apply the modifiers.
      *
      * @return string The new bem value
@@ -215,8 +200,6 @@ final class BemPrefixed implements Bem, Prefix
      * Sanitize Html Class
      *
      * The fallback code is partially get from WordPress `sanitize_html_class` function.
-     *
-     * @since 1.0.0
      *
      * @param string $class The class string to sanitize.
      *

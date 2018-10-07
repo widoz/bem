@@ -31,8 +31,7 @@ use \Brain\Monkey\Functions;
 /**
  * Class Test Case
  *
- * @since 1.0.0
- * @author  Guido Scialfa <dev@guidoscialfa.com>
+ * @author Guido Scialfa <dev@guidoscialfa.com>
  */
 class TestCase extends \PHPUnit\Framework\TestCase
 {
@@ -40,8 +39,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * Define Common WordPress Functions
-     *
-     * @since 1.0.0 1.2.1
      */
     protected function defineCommonWPFunctions()
     {
@@ -75,8 +72,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * SetUp
-     *
-     * @since 1.0.0 1.0.0
      */
     protected function setUp()
     {
@@ -88,8 +83,6 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * TearDown
-     *
-     * @since 1.0.0 1.0.0
      */
     protected function tearDown()
     {

@@ -29,16 +29,13 @@ namespace Widoz\Bem;
 /**
  * Class Bem
  *
- * @since   1.0.0
  * @package Widoz\Bem
- * @author  Guido Scialfa <dev@guidoscialfa.com>
+ * @author Guido Scialfa <dev@guidoscialfa.com>
  */
 interface Bem extends Value
 {
     /**
      * Block
-     *
-     * @since 1.0.0
      *
      * @return string The block part
      */
@@ -47,16 +44,12 @@ interface Bem extends Value
     /**
      * Element
      *
-     * @since 1.0.0
-     *
      * @return string The element part
      */
     public function element(): string;
 
     /**
      * Modifiers
-     *
-     * @since 1.0.0
      *
      * @return array The modifiers list
      */

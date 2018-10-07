@@ -29,16 +29,13 @@ namespace Widoz\Bem;
 /**
  * Class Value
  *
- * @since   1.0.0
  * @package Widoz\Bem\Value
- * @author  Guido Scialfa <dev@guidoscialfa.com>
+ * @author Guido Scialfa <dev@guidoscialfa.com>
  */
 interface Value
 {
     /**
      * Get Value
-     *
-     * @since 1.0.0
      *
      * @return string The class attribute value
      */
@@ -46,8 +43,6 @@ interface Value
 
     /**
      * To String
-     *
-     * @since 1.0.0
      *
      * @return string The scope string value
      */
