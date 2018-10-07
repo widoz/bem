@@ -24,13 +24,13 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-namespace Unprefix\Bem;
+namespace Widoz\Bem;
 
 /**
  * Class Prefix
  *
  * @since   1.0.0
- * @package Unprefix\Bem
+ * @package Widoz\Bem
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
 interface Prefix

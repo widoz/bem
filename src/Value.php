@@ -3,7 +3,7 @@
  * Call Value Attribute
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
- * @package   Unprefix\Bem
+ * @package   Widoz\Bem
  * @copyright Copyright (c) 2017, Guido Scialfa
  * @license   GNU General Public License, version 2
  *
@@ -24,13 +24,13 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-namespace Unprefix\Bem;
+namespace Widoz\Bem;
 
 /**
  * Class Value
  *
  * @since   1.0.0
- * @package Unprefix\Bem\Value
+ * @package Widoz\Bem\Value
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
 interface Value

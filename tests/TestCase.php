@@ -1,6 +1,6 @@
 <?php
 /**
- * Unprefix Test Case
+ * Test Case
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
  * @copyright Copyright (c) 2017, Guido Scialfa
@@ -23,19 +23,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-namespace Unprefix\Tests;
+namespace Widoz\Bem\Tests;
 
 use \Brain\Monkey;
 use \Brain\Monkey\Functions;
-use \PHPUnit\Framework\TestCase;
 
 /**
- * Class UnprefixTestCase
+ * Class Test Case
  *
  * @since 1.0.0
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
-class UnprefixTestCase extends TestCase
+class TestCase extends \PHPUnit\Framework\TestCase
 {
     protected static $sourcePath;
 

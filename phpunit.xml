@@ -9,7 +9,7 @@
         stopOnError="true"
         stopOnFailure="true">
     <testsuites>
-        <testsuite>
+        <testsuite name="Test">
             <directory suffix="Test.php">./tests/unit/</directory>
         </testsuite>
     </testsuites>

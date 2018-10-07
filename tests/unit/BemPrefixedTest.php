@@ -3,7 +3,7 @@
  * ClassAttributeTest
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
- * @package   Unprefix\Tests
+ * @package   Widoz\Tests
  * @copyright Copyright (c) 2017, Guido Scialfa
  * @license   GNU General Public License, version 2
  *
@@ -24,18 +24,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-namespace Unprefix\Tests\Unit;
+namespace Widoz\Tests\Unit;
 
-use Unprefix\Bem\BemPrefixed;
-use Unprefix\Tests\UnprefixTestCase;
+use Widoz\Bem\BemPrefixed;
+use Widoz\Bem\Tests\TestCase;
 
-class BemPrefixedTest extends UnprefixTestCase
+class BemPrefixedTest extends TestCase
 {
     public function testInstance()
     {
         $sut = new BemPrefixed('block');
 
-        $this->assertInstanceOf('\\Unprefix\\Bem\\BemPrefixed', $sut);
+        $this->assertInstanceOf('\\Widoz\\Bem\\BemPrefixed', $sut);
     }
 
     public function testReturnedTypeIsString()

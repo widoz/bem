@@ -5,7 +5,7 @@ declare(strict_types=1);
  * BemPrefixed
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
- * @package   Unprefix\Bem
+ * @package   Widoz\Bem
  * @copyright Copyright (c) 2017, Guido Scialfa
  * @license   GNU General Public License, version 2
  *
@@ -26,13 +26,13 @@ declare(strict_types=1);
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-namespace Unprefix\Bem;
+namespace Widoz\Bem;
 
 /**
  * Class BemPrefixed
  *
  * @since   1.0.0
- * @package Unprefix\Bem
+ * @package Widoz\Bem
  * @author  Guido Scialfa <dev@guidoscialfa.com>
  */
 final class BemPrefixed implements Bem, Prefix
@@ -128,7 +128,7 @@ final class BemPrefixed implements Bem, Prefix
              * @param string $bem The bem value.
              * @param Bem $this The instance of the class.
              */
-            $bem = apply_filters('unprefix_bem', $bem, $this);
+            $bem = apply_filters('bem', $bem, $this);
         }
 
         // Sanitize the class name.
