@@ -28,8 +28,6 @@
             "Unprefix\\Tests\\Unit\\": "tests/unit/"
         }
     },
-    "optimize-autoloader": true,
-    "classmap-authoritative": true,
     "require": {
         "php": ">=7.0"
     },
@@ -39,5 +37,10 @@
         "automattic/phpcs-neutron-standard": "~1.2.0",
         "wp-coding-standards/wpcs": "~0.14.0",
         "object-calisthenics/phpcs-calisthenics-rules": "~2.0.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
