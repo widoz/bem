@@ -10,9 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "homepage": "http://www.unprefix.com",
+    "homepage": "https://github.com/widoz/bem",
     "support": {
-        "issues": "https://github.com/widoz/bemscope/issues"
+        "issues": "https://github.com/widoz/bem/issues"
     },
     "autoload": {
         "classmap": [

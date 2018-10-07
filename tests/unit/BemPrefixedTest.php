@@ -187,14 +187,9 @@ class BemPrefixedTest extends TestCase
     public function testSanitizeHtmlClassKeepOnlyOneSpaceBetweenClasses()
     {
         \Brain\Monkey\Functions\when('apply_filters')
-            ->returnArg(2);
+            ->justReturn('block  block--modifier  block--modifier2');
         \Brain\Monkey\Functions\when('sanitize_html_class')
             ->returnArg(1);
-
-        // 2 spaces.
-        add_filter('unprefix_scope_attribute', function ($upxscope) {
-            return 'block  block--modifier  block--modifier2';
-        });
 
         $sut = new BemPrefixed('block', '', array('modifier', 'modifier2'), '');
 

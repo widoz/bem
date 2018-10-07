@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/widoz/bem.svg?branch=master)](https://travis-ci.org/widoz/bem)
 [![codecov](https://codecov.io/gh/widoz/bem/branch/master/graph/badge.svg)](https://codecov.io/gh/widoz/bem)
 
-# Unprefix BEM Library
+# BEM Library
 
-Unprefix Bem is a library that allow you to define BEM style class attribute values to use in your markup.
+Bem is a library that allow you to define BEM style class attribute values to use in your markup.
 
 Let for example you want to include a class attribute value into your html tag.
 You can do it by using the library.
@@ -16,7 +16,7 @@ You can do it by using the library.
 
 The library works with WordPress but also as a standalone library to use in your project.
 
-If you use it into your WordPress project you can take advantage of the `unprefix_bem` filter allowing you
+If you use it into your WordPress project you can take advantage of the `bem` filter allowing you
 to manipulate the bem string depending on your needs.
 
 It's is possible to retrieve the entire class value such as the block, element and modifiers singularly.
@@ -60,7 +60,7 @@ directly from the instance.
 
 ```php
 // Create an instance of the class.
-$bem = new \Unprefix\Bem\BemPrefixed(
+$bem = new \Widoz\Bem\BemPrefixed(
 	'block'      // The block property.
 	'element'    // The element property.
 	['modifier'] // The modifier property. Array, doesn't support strings.
@@ -84,7 +84,7 @@ It's possible to pass more than one modifier as you can see by the type hint of 
 So for example, the following code will output `block block--modifier-one block--modifier-two`.
 
 ```php
-$bem = new \Unprefix\Bem\BemPrefixed('block', '', ['modifier-one', 'modifier-two']);
+$bem = new \Widoz\Bem\BemPrefixed('block', '', ['modifier-one', 'modifier-two']);
 
 // Will output block block--modifier-one block--modifier-two.
 echo $bem->value();
@@ -99,7 +99,7 @@ So, passing the correct value is completely up to you.
 To retrieve properties, simply ask for them.
 
 ```php
-$bem = new \Unprefix\Bem\BemPrefixed('block', 'element', ['modifier']);
+$bem = new \Widoz\Bem\BemPrefixed('block', 'element', ['modifier']);
 
 // Will be assigned 'block'.
 $block = $bem->block();
@@ -118,7 +118,7 @@ It's a common way to prefix the css classes to prevent conflict with other libra
 The BemPrefixed (as the name says) support prefixes.
 
 ```php
-$bem = new \Unprefix\Bem\BemPrefixed('block', 'element', [], 'prefix');
+$bem = new \Widoz\Bem\BemPrefixed('block', 'element', [], 'prefix');
 
 // Will output 'prefixblock__element'.
 echo $bem->value();
