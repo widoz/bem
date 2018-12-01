@@ -36,6 +36,8 @@ namespace Widoz\Bem;
  */
 final class BemPrefixed implements Bem, HasPrefix
 {
+    const FILTER_VALUE = 'bem.value';
+
     /**
      * Block
      *
@@ -101,7 +103,7 @@ final class BemPrefixed implements Bem, HasPrefix
         }
 
         // Apply the element.
-        if (!$this->modifiers and $this->element) {
+        if (!$this->modifiers && $this->element) {
             $bem .= "__{$this->element}";
         }
 
@@ -115,7 +117,7 @@ final class BemPrefixed implements Bem, HasPrefix
              * @param string $bem The bem value.
              * @param Bem $this The instance of the class.
              */
-            $bem = apply_filters('bem', $bem, $this);
+            $bem = apply_filters(self::FILTER_VALUE, $bem, $this);
         }
 
         // Sanitize the class name.
