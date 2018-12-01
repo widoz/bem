@@ -106,7 +106,7 @@ final class BemPrefixed implements Bem, HasPrefix
         }
 
         // Allow to be used outside of WordPress.
-        if (function_exists('apply_filters')) {
+        if (\function_exists('apply_filters')) {
             /**
              * Bem Filter
              *
@@ -209,7 +209,7 @@ final class BemPrefixed implements Bem, HasPrefix
     {
         $classes = explode(' ', $class);
 
-        if (function_exists('sanitize_html_class')) {
+        if (\function_exists('sanitize_html_class')) {
             return implode(' ', array_map('sanitize_html_class', $classes));
         }
 
