@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/widoz/bem.svg?branch=master)](https://travis-ci.org/widoz/bem)
-[![codecov](https://codecov.io/gh/widoz/bem/branch/master/graph/badge.svg)](https://codecov.io/gh/widoz/bem)
+[![Build Status](https://img.shields.io/travis/widoz/bem/develop.svg?style=flat-square)](https://travis-ci.org/widoz/bem)
+[![codecov](https://img.shields.io/codecov/c/github/widoz/bem/develop.svg?style=flat-square)](https://codecov.io/gh/widoz/bem)
 
 # BEM Library
 
