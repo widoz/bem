@@ -19,13 +19,12 @@
             "src/"
         ],
         "psr-4": {
-            "Widoz\\BemScope\\": "src"
+            "Widoz\\Bem\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Widoz\\Bem\\Tests\\": "tests/",
-            "Widoz\\Bem\\Unit\\": "tests/unit/"
+            "Widoz\\Bem\\Tests\\": "tests/"
         }
     },
     "require": {

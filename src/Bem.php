@@ -32,7 +32,7 @@ namespace Widoz\Bem;
  * @package Widoz\Bem
  * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-interface Bem extends Value
+interface Bem
 {
     /**
      * Block
@@ -51,7 +51,7 @@ interface Bem extends Value
     /**
      * Modifiers
      *
-     * @return array The modifiers list
+     * @return Modifiable The modifiers list
      */
-    public function modifiers(): array;
+    public function modifiers(): Modifiable;
 }

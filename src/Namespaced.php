@@ -1,6 +1,8 @@
 <?php
+declare(strict_types=1);
+
 /**
- * Call Value Attribute
+ * Namespaced
  *
  * @author    Guido Scialfa <dev@guidoscialfa.com>
  * @package   Widoz\Bem
@@ -27,24 +29,61 @@
 namespace Widoz\Bem;
 
 /**
- * Interface Value
+ * Class Namespaced
  *
- * @package Widoz\Bem\Value
+ * @package Widoz\Bem
  * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-interface Value
+class Namespaced implements Value
 {
-    /**
-     * Get Value
-     *
-     * @return string The class attribute value
-     */
-    public function value(): string;
+    use FilterTrait;
+
+    const FILTER_VALUE = 'bem.namespaced_value';
 
     /**
-     * To String
-     *
-     * @return string The scope string value
+     * @var Value The object to decorate
      */
-    public function __toString(): string;
+    private $value;
+
+    /**
+     * The Prefix
+     *
+     * To avoid conflicts
+     *
+     * @var string The prefix to use in conjunction to the block value
+     */
+    private $namespace;
+
+    /**
+     * BemPrefixed constructor
+     *
+     * @param Value $value The value object to decorate
+     * @param string $namespace The namespace to use in conjunction to the block value.
+     */
+    public function __construct(Value $value, string $namespace)
+    {
+        $this->value = $value;
+        $this->namespace = $namespace;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function value(): string
+    {
+        $bem = $this->applyFilters(
+            $this->namespace . $this->value->value(),
+            self::FILTER_VALUE
+        );
+
+        return $bem;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function __toString(): string
+    {
+        return $this->value();
+    }
 }
