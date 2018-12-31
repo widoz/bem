@@ -88,6 +88,20 @@ $namspaced = new Namespaced($standard, 'namespace');
 $namespaced->value(); // will output 'namespaceblock'
 ``` 
 
+## Factory
+To create a bem as you seen above isn't much complex but isn't simple as doing it in one line of code
+(if you want to keep your code readable). For that reason you make use of a simple `Factory` class
+that allow you to create all of the Bem classes you want just in one line of code by passing only
+the necessary data.
+
+```php
+$standardBem = Factory::createStandard('block', 'element', ['modifier']);
+// Or
+$namespacedBem = Factory::createWithNamespace('namespace', 'block', 'element', ['modifier']);
+```
+
+Then you can use the object as usual, by calling the method `value`.
+
 **Note:**
 Even though it's possible to pass all of the parameters to the class that implements `Bem` interface, 
 when both *block* and *modifiers* are passed the *element* is ignored.
