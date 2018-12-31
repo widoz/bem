@@ -11,6 +11,7 @@
     <testsuites>
         <testsuite name="Test">
             <directory suffix="Test.php">./tests/unit/</directory>
+            <directory suffix="Test.php">./tests/Integration/</directory>
         </testsuite>
     </testsuites>
     <filter>
