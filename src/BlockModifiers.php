@@ -19,6 +19,8 @@ namespace Widoz\Bem;
  */
 class BlockModifiers implements Modifiable
 {
+    use ClassAllowedCharsTrait;
+
     /**
      * @var array
      */
@@ -36,9 +38,7 @@ class BlockModifiers implements Modifiable
      */
     public function __construct(array $modifiers, string $block)
     {
-        $this->ensureModifiers($modifiers);
-
-        $this->modifiers = $modifiers;
+        $this->modifiers = $this->ensureArrayOfClassesStrings($modifiers);
         $this->block = $block;
     }
 
@@ -68,22 +68,8 @@ class BlockModifiers implements Modifiable
      */
     private function reduce(string $carry, string $item): string
     {
-        // Sanitize modifier.
-        $item = preg_replace('/[^a-zA-Z0-9\-]/', '-', $item);
         $carry .= ' ' . "{$this->block}--{$item}";
 
         return $carry;
-    }
-
-    /**
-     * @param array $modifiers
-     * @throws \RuntimeException
-     */
-    private function ensureModifiers(array $modifiers)
-    {
-        $modifiers = array_filter($modifiers, 'is_string');
-        if (count($modifiers) === 0) {
-            throw new \RuntimeException('Modifiers are not strings.');
-        }
     }
 }

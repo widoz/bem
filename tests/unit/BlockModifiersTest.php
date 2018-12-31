@@ -23,24 +23,4 @@ class BlockModifiersTest extends TestCase
 
         self::assertSame('block--modifier block--modifier-2', $response);
     }
-
-    /**
-     * @dataProvider typeProvider
-     */
-    public function testStringifyThrownExceptionIfModifiersAreNotStrings($data)
-    {
-        $this->expectException(\RuntimeException::class);
-
-        new BlockModifiers([$data], 'block');
-    }
-
-    public function typeProvider()
-    {
-        return [
-            [1],
-            [[]],
-            [null],
-            [false]
-        ];
-    }
 }

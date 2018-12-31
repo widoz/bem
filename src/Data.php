@@ -19,6 +19,8 @@ namespace Widoz\Bem;
  */
 class Data implements Bem
 {
+    use ClassAllowedCharsTrait;
+
     /**
      * Block
      *
@@ -52,8 +54,8 @@ class Data implements Bem
         Modifiable $modifiers = null
     ) {
 
-        $this->block = $block;
-        $this->element = $element;
+        $this->block = $this->ensureStringClass($block);
+        $this->element = $this->ensureStringClass($element);
         $this->modifiers = $modifiers;
     }
 

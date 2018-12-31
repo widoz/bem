@@ -46,32 +46,6 @@ class StandardTest extends TestCase
         $this->assertSame('block block--modifier', $scope);
     }
 
-    public function testModifierGetSanitized()
-    {
-        $modifiers = new BlockModifiers(
-            [
-                'name with spaces',
-                'name_with_underscores',
-            ],
-            'block'
-        );
-        $bem = new Data('block', 'element', $modifiers);
-        $testee = new Standard($bem);
-
-        \Brain\Monkey\Functions\when('apply_filters')
-            ->returnArg(2);
-        \Brain\Monkey\Functions\expect('sanitize_html_class')
-            ->once()
-            ->andReturnFirstArg();
-
-        $scope = $testee->value();
-
-        $this->assertSame(
-            'block block--name-with-spaces block--name-with-underscores',
-            $scope
-        );
-    }
-
     public function testSanitizeHtmlClassKeepOnlyOneSpaceBetweenClasses()
     {
         \Brain\Monkey\Functions\when('apply_filters')
