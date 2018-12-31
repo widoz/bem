@@ -5,14 +5,14 @@ namespace Widoz\Bem\Tests\unit;
 
 use Widoz\Bem\Data;
 use PHPUnit\Framework\TestCase;
-use Widoz\Bem\Modifiable;
+use Widoz\Bem\Modifiers;
 use Widoz\Bem\NullModifiers;
 
 class DataTest extends TestCase
 {
     public function testsInstance()
     {
-        $modifiers = $this->createMock(Modifiable::class);
+        $modifiers = $this->createMock(Modifiers::class);
         $data = new Data('block', 'element', $modifiers);
 
         self::assertInstanceOf(Data::class, $data);
@@ -20,7 +20,7 @@ class DataTest extends TestCase
 
     public function testData()
     {
-        $modifiers = $this->createMock(Modifiable::class);
+        $modifiers = $this->createMock(Modifiers::class);
         $data = new Data('block', 'element', $modifiers);
 
         self::assertSame('block', $data->block());

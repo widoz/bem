@@ -41,12 +41,12 @@ class Data implements Bem
      * Data constructor
      * @param string $block
      * @param string $element
-     * @param Modifiable|null $modifiers
+     * @param Modifiers|null $modifiers
      */
     public function __construct(
         string $block,
         string $element = '',
-        Modifiable $modifiers = null
+        Modifiers $modifiers = null
     ) {
 
         $this->block = $this->ensureStringClass($block);
@@ -73,7 +73,7 @@ class Data implements Bem
     /**
      * @inheritdoc
      */
-    public function modifiers(): Modifiable
+    public function modifiers(): Modifiers
     {
         return $this->modifiers ?: new NullModifiers();
     }

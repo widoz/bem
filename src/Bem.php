@@ -31,7 +31,7 @@ interface Bem
     /**
      * Modifiers
      *
-     * @return Modifiable The modifiers list
+     * @return Modifiers The modifiers list
      */
-    public function modifiers(): Modifiable;
+    public function modifiers(): Modifiers;
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-interface Modifiable extends \IteratorAggregate
+interface Modifiers extends \IteratorAggregate
 {
     /**
      * @return string

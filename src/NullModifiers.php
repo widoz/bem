@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-class NullModifiers implements Modifiable
+class NullModifiers implements Modifiers
 {
     /**
      * @inheritdoc
