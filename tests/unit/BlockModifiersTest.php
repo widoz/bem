@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 // phpcs:disable
 
-namespace Widoz\Bem\Tests\unit;
+namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\BlockModifiers;
 use PHPUnit\Framework\TestCase;
