@@ -32,14 +32,13 @@ class Factory
         return new Standard($data);
     }
 
-    public static function createServiceForStandard(
-        string $block,
-        string $element = '',
-        array $modifiers = []
-    ): Service {
-
-        $blockModifiers = self::createModifiers($modifiers, $block);
-        $data = new Data($block, $element, $blockModifiers);
+    /**
+     * @param string $block
+     * @return Service
+     */
+    public static function createServiceForStandard(string $block): Service
+    {
+        $data = new Data($block);
         $bem = new Standard($data);
 
         return new Service($data, $bem);

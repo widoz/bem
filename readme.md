@@ -78,6 +78,7 @@ $standard->value(); // will print 'block block--modifier'
 ```
 
 ## Factory
+
 To create a bem as you seen above isn't much complex but isn't simple as doing it in one line of code
 (if you want to keep your code readable). For that reason you make use of a simple `Factory` class
 that allow you to create all of the Bem classes you want just in one line of code by passing only
@@ -95,7 +96,56 @@ when both *block* and *modifiers* are passed the *element* is ignored.
 
 This is right and in line with the BEM requirements. Infact isn't possible to have a BEM string like `block block--modifier__element`.
 
-### Add more than one modifier
+## Service
+
+Creating one object for every changes you need to make when you are building a component or a block
+for you project can be quite prolix and useless because most of the time what you want to do is to have
+a `block` and than change the `element` or the `modifier` parts.
+
+For this reason `Bem` offer a configurable service with which is possible to set only the `block`
+part of the bem object so you can inject it into your classes and change only the parts needed during
+the component building.
+
+```php
+$service = Factory::createServiceForStandard('block');
+```
+
+Then you can make use of `forElement` and `withModifiers` methods to update the bem object.
+
+```php
+class MyBlockClass 
+{
+    private $bemService;
+
+    public function __construct(Service $bemService)
+    {
+        $this->bemService = $bemService;
+    }
+    
+    public function buildComponentElement()
+    {
+        $element = $this->bemService->forElement('element');
+        $subElement = $this->bemService->forElement('sub-element');
+        ?>
+            <div class="<?= $element->value() ?>">
+                <div class="<?= $subelement->value() ?>">
+                </div>
+            </div>
+        <?php
+    }
+    
+    public function buildBlockVariant()
+    {
+        $blockVariant = $this->bemService->withModifiers(['modifier']);
+        ?>
+        <div class="<?= $blockVariant->value() ?>">
+        </div>
+        <?php
+    }
+}
+```
+
+## Add more than one modifier
 
 It's possible to pass more than one modifier to `BlockModifier` infact the `__construct` method
 get an array of strings.

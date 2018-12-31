@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-class Service implements Valuable
+class Service
 {
     /**
      * @var Bem
@@ -36,78 +36,41 @@ class Service implements Valuable
     }
 
     /**
-     * @param string $block
-     * @return $this
-     */
-    public function forBlock(string $block): self
-    {
-        $this->clone($block);
-
-        return $this;
-    }
-
-    /**
      * @param string $element
-     * @return $this
+     * @return Valuable
      */
-    public function forElement(string $element): self
+    public function forElement(string $element): Valuable
     {
-        $this->clone('', $element);
-
-        return $this;
+        return $this->clone($element);
     }
 
     /**
      * @param array $modifiers
-     * @return $this
+     * @return Valuable
      */
-    public function withModifiers(array $modifiers): self
+    public function withModifiers(array $modifiers): Valuable
     {
-        $this->clone('', '', $modifiers);
-
-        return $this;
+        return $this->clone('', $modifiers);
     }
 
     /**
-     * @return string
-     */
-    public function value(): string
-    {
-        return $this->value->value();
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return $this->value->__toString();
-    }
-
-    /**
-     * @param string $block
      * @param string $element
      * @param array $modifiers
+     * @return Valuable
      */
-    private function clone(string $block = '', string $element = '', array $modifiers = [])
+    private function clone(string $element = '', array $modifiers = []): Valuable
     {
         $bemClass = get_class($this->bem);
         $valueClass = get_class($this->value);
 
-        $newBlock = $block ?: $this->bem->block();
+        $block = $this->bem->block();
         $newElement = $element ?: $this->bem->element();
         $newBlockModifiers = $modifiers
-            ? new BlockModifiers($modifiers, $newBlock)
+            ? new BlockModifiers($modifiers, $block)
             : $this->bem->modifiers();
 
-        if ($block) {
-            $blockArrayModifiers = iterator_to_array($this->bem->modifiers());
-            $newBlockModifiers = $blockArrayModifiers
-                ? new BlockModifiers($blockArrayModifiers, $newBlock)
-                : new NullModifiers();
-        }
+        $bem = new $bemClass($block, $newElement, $newBlockModifiers);
 
-        $this->bem = new $bemClass($newBlock, $newElement, $newBlockModifiers);
-        $this->value = new $valueClass($this->bem);
+        return new $valueClass($bem);
     }
 }
