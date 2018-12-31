@@ -4,6 +4,7 @@
 namespace Widoz\Bem\Tests\Integration;
 
 use Widoz\Bem\Factory;
+use Widoz\Bem\Service;
 use Widoz\Bem\Standard;
 use Widoz\Bem\Tests\TestCase;
 
@@ -14,5 +15,12 @@ class FactoryTest extends TestCase
         $testee = Factory::createStandard('block');
 
         self::assertInstanceOf(Standard::class, $testee);
+    }
+
+    public function testCreateServiceForStandard()
+    {
+        $testee = Factory::createServiceForStandard('block');
+
+        self::assertInstanceOf(Service::class, $testee);
     }
 }
