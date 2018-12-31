@@ -12,26 +12,21 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-interface Bem
+class NullModifiers implements Modifiers
 {
     /**
-     * Block
-     *
-     * @return string The block part
+     * @inheritdoc
      */
-    public function block(): string;
+    public function stringify(): string
+    {
+        return '';
+    }
 
     /**
-     * Element
-     *
-     * @return string The element part
+     * @inheritdoc
      */
-    public function element(): string;
-
-    /**
-     * Modifiers
-     *
-     * @return Modifiers The modifiers list
-     */
-    public function modifiers(): Modifiers;
+    public function getIterator()
+    {
+        return new \ArrayIterator([]);
+    }
 }

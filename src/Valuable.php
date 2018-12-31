@@ -12,26 +12,19 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-interface Bem
+interface Valuable
 {
     /**
-     * Block
+     * Get Value
      *
-     * @return string The block part
+     * @return string The class attribute value
      */
-    public function block(): string;
+    public function value(): string;
 
     /**
-     * Element
+     * To String
      *
-     * @return string The element part
+     * @return string The scope string value
      */
-    public function element(): string;
-
-    /**
-     * Modifiers
-     *
-     * @return Modifiers The modifiers list
-     */
-    public function modifiers(): Modifiers;
+    public function __toString(): string;
 }

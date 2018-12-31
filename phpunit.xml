@@ -6,11 +6,12 @@
         backupGlobals="true"
         backupStaticAttributes="true"
         processIsolation="true"
-        stopOnError="true"
-        stopOnFailure="true">
+        stopOnError="false"
+        stopOnFailure="false">
     <testsuites>
         <testsuite name="Test">
             <directory suffix="Test.php">./tests/unit/</directory>
+            <directory suffix="Test.php">./tests/Integration/</directory>
         </testsuite>
     </testsuites>
     <filter>
