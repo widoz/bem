@@ -34,7 +34,7 @@ trait FilterTrait
              * Filter the value string before it is returned.
              *
              * @param string $bem The bem value.
-             * @param Value $this The instance of the class.
+             * @param Valuable $this The instance of the class.
              */
             $bem = (string)apply_filters($filter, $bem, $this);
         }

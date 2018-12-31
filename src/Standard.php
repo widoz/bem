@@ -17,7 +17,7 @@ namespace Widoz\Bem;
  *
  * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-class Standard implements Value
+class Standard implements Valuable
 {
     use FilterTrait;
 

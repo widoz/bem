@@ -34,14 +34,14 @@ namespace Widoz\Bem;
  * @package Widoz\Bem
  * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-class Namespaced implements Value
+class Namespaced implements Valuable
 {
     use FilterTrait;
 
     const FILTER_VALUE = 'bem.namespaced_value';
 
     /**
-     * @var Value The object to decorate
+     * @var Valuable The object to decorate
      */
     private $value;
 
@@ -57,10 +57,10 @@ class Namespaced implements Value
     /**
      * BemPrefixed constructor
      *
-     * @param Value $value The value object to decorate
+     * @param Valuable $value The value object to decorate
      * @param string $namespace The namespace to use in conjunction to the block value.
      */
-    public function __construct(Value $value, string $namespace)
+    public function __construct(Valuable $value, string $namespace)
     {
         $this->value = $value;
         $this->namespace = $namespace;

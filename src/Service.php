@@ -17,7 +17,7 @@ namespace Widoz\Bem;
  *
  * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-class Service implements Value
+class Service implements Valuable
 {
     /**
      * @var Bem
@@ -25,16 +25,16 @@ class Service implements Value
     private $bem;
 
     /**
-     * @var Value
+     * @var Valuable
      */
     private $value;
 
     /**
      * Service constructor
      * @param Bem $bem
-     * @param Value $value
+     * @param Valuable $value
      */
-    public function __construct(Bem $bem, Value $value)
+    public function __construct(Bem $bem, Valuable $value)
     {
         $this->bem = $bem;
         $this->value = $value;

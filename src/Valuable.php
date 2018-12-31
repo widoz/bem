@@ -29,10 +29,10 @@ namespace Widoz\Bem;
 /**
  * Interface Value
  *
- * @package Widoz\Bem\Value
+ * @package Widoz\Bem
  * @author Guido Scialfa <dev@guidoscialfa.com>
  */
-interface Value
+interface Valuable
 {
     /**
      * Get Value

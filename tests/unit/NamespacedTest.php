@@ -30,7 +30,7 @@ use Brain\Monkey\Filters;
 use Widoz\Bem\Namespaced;
 use Widoz\Bem\Standard;
 use Widoz\Bem\Tests\TestCase;
-use Widoz\Bem\Value;
+use Widoz\Bem\Valuable;
 
 class NamespacedTest extends TestCase
 {
@@ -74,7 +74,7 @@ class NamespacedTest extends TestCase
 
     public function testFilterIsApplied()
     {
-        $value = $this->createMock(Value::class);
+        $value = $this->createMock(Valuable::class);
         $testee = new Namespaced($value, 'namespace');
 
         Filters\expectApplied(Namespaced::FILTER_VALUE)
