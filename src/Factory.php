@@ -33,25 +33,6 @@ class Factory
     }
 
     /**
-     * @param string $namespace
-     * @param string $block
-     * @param string $element
-     * @param array $modifiers
-     * @return Namespaced
-     */
-    public static function createWithNamespace(
-        string $namespace,
-        string $block,
-        string $element = '',
-        array $modifiers = []
-    ): Namespaced {
-
-        $bem = self::createStandard($namespace . $block, $element, $modifiers);
-
-        return new Namespaced($bem, $namespace);
-    }
-
-    /**
      * @param array $modifiers
      * @param string $block
      * @return Modifiers

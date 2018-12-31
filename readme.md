@@ -53,7 +53,7 @@ For more information have a look at: [getbem](http://getbem.com/)
 
 ## How it works
 
-To use the bem value you must create a instance of a class that implements `Valuable` interface such as `Standard` or `Namespaced` then 
+To use the bem value you must create a instance of a class that implements `Valuable` interface such as `Standard` then 
 call `value` method.
 
 Since version 1.0.0 isn't possible to retrieve the bem's components separately, this is because the 
@@ -77,17 +77,6 @@ $standard = new Standard($bem);
 $standard->value(); // will print 'block block--modifier'
 ```
 
-The *Namespace* bem value is a decorator for the *Standard* one that get an additional parameter
-in the `__construct` method to set the namespace for your block classes.
-
-```php
-$bem = new Data('block');
-$standard = new Standard($bem);
-$namspaced = new Namespaced($standard, 'namespace');
-
-$namespaced->value(); // will output 'namespaceblock'
-``` 
-
 ## Factory
 To create a bem as you seen above isn't much complex but isn't simple as doing it in one line of code
 (if you want to keep your code readable). For that reason you make use of a simple `Factory` class
@@ -96,8 +85,6 @@ the necessary data.
 
 ```php
 $standardBem = Factory::createStandard('block', 'element', ['modifier']);
-// Or
-$namespacedBem = Factory::createWithNamespace('namespace', 'block', 'element', ['modifier']);
 ```
 
 Then you can use the object as usual, by calling the method `value`.
