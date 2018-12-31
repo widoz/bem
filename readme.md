@@ -44,6 +44,8 @@ BEM — Block Element Modifier is a methodology that helps you to create reu
 Example
 
 ```css
+.block {}
+
 .block__element {}
 
 .block block--modifier {}
