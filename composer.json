@@ -33,7 +33,8 @@
     "require-dev": {
         "phpunit/phpunit": "~6.5.5",
         "brain/monkey": "dev-master",
-        "inpsyde/php-coding-standards": "^0.13.0@dev"
+        "inpsyde/php-coding-standards": "^0.13.0@dev",
+        "widoz/project-tests-helper": "dev-master"
     },
     "extra": {
         "branch-alias": {

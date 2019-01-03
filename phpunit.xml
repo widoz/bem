@@ -1,5 +1,5 @@
 <phpunit
-        bootstrap="./tests/bootstrap.php.dist"
+        bootstrap="./vendor/widoz/project-tests-helper/inc/phpunit/bootstrap.php.dist"
         colors="true"
         beStrictAboutOutputDuringTests="true"
         beStrictAboutChangesToGlobalState="true"

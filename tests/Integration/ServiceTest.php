@@ -5,7 +5,7 @@ namespace Widoz\Bem\Tests\Integration;
 
 use Widoz\Bem\Data;
 use Widoz\Bem\Standard;
-use Widoz\Bem\Tests\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\Service;
 
 class ServiceTest extends TestCase

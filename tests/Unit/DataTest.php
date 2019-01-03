@@ -4,7 +4,7 @@
 namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\Data;
-use PHPUnit\Framework\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\Modifiers;
 use Widoz\Bem\NullModifiers;
 

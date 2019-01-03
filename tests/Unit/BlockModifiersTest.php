@@ -4,7 +4,7 @@
 namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\BlockModifiers;
-use PHPUnit\Framework\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 
 class BlockModifiersTest extends TestCase
 {

@@ -6,7 +6,7 @@ namespace Widoz\Bem\Tests\Integration;
 use Widoz\Bem\Factory;
 use Widoz\Bem\Service;
 use Widoz\Bem\Standard;
-use Widoz\Bem\Tests\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 
 class FactoryTest extends TestCase
 {

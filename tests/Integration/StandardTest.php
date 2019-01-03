@@ -3,12 +3,11 @@
 
 namespace Widoz\Bem\Tests\Integration;
 
-use Brain\Monkey\Filters;
 use Brain\Monkey\Functions;
 use Widoz\Bem\Data;
 use Widoz\Bem\BlockModifiers;
 use Widoz\Bem\Standard;
-use PHPUnit\Framework\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 
 class StandardTest extends TestCase
 {

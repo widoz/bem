@@ -15,7 +15,7 @@ namespace Widoz\Bem\Tests\Unit;
 use Brain\Monkey\Filters;
 use Widoz\Bem\Bem;
 use Widoz\Bem\Standard;
-use Widoz\Bem\Tests\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 
 class StandardTest extends TestCase
 {
