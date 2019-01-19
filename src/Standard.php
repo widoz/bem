@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-class Standard implements Valuable
+class Standard implements Valuable, Stringable
 {
     const FILTER_VALUE = 'bem.value';
 
