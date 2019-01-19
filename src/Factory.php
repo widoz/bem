@@ -27,9 +27,10 @@ class Factory
     ): Standard {
 
         $blockModifiers = self::createModifiers($modifiers, $block);
-        $data = new Data($block, $element, $blockModifiers);
+        $bem = new Data($block, $element, $blockModifiers);
+        $filter = new Filter();
 
-        return new Standard($data);
+        return new Standard($bem, $filter);
     }
 
     /**
@@ -38,10 +39,11 @@ class Factory
      */
     public static function createServiceForStandard(string $block): Service
     {
-        $data = new Data($block);
-        $bem = new Standard($data);
+        $bem = new Data($block);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
 
-        return new Service($data, $bem);
+        return new Service($bem, $value);
     }
 
     /**

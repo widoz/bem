@@ -14,8 +14,6 @@ namespace Widoz\Bem;
 
 class Standard implements Valuable
 {
-    use FilterTrait;
-
     const FILTER_VALUE = 'bem.value';
 
     /**
@@ -24,12 +22,19 @@ class Standard implements Valuable
     private $bem;
 
     /**
+     * @var Filter
+     */
+    private $filter;
+
+    /**
      * Standard constructor
      * @param Bem $bem
+     * @param Filter $filter
      */
-    public function __construct(Bem $bem)
+    public function __construct(Bem $bem, Filter $filter)
     {
         $this->bem = $bem;
+        $this->filter = $filter;
     }
 
     /**
@@ -53,7 +58,7 @@ class Standard implements Valuable
             $bem .= "__{$element}";
         }
 
-        $bem = $this->applyFilters($bem, self::FILTER_VALUE);
+        $bem = $this->filter->apply($bem, self::FILTER_VALUE);
         // Clean multiple spaces.
         $bem = preg_replace('/\s{2,}/', ' ', $bem);
 
