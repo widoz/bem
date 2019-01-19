@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-interface Valuable
+interface Valuable extends Stringable
 {
     /**
      * Get Value
