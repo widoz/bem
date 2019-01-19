@@ -17,5 +17,5 @@ interface Modifiers extends \IteratorAggregate
     /**
      * @return string
      */
-    public function stringify(): string;
+    public function __toString(): string;
 }

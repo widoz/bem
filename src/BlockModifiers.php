@@ -48,7 +48,7 @@ class BlockModifiers implements Modifiers
     /**
      * @return string
      */
-    public function stringify(): string
+    public function __toString(): string
     {
         $scopeModified = array_reduce($this->modifiers, [$this, 'reduce'], '');
         $value = preg_replace('/\s{2,}/', ' ', $scopeModified);

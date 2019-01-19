@@ -46,7 +46,7 @@ class Standard implements Valuable
         $block = $this->bem->block();
         $bem = $block;
         $element = $this->bem->element();
-        $modifiers = $this->bem->modifiers()->stringify();
+        $modifiers = (string)$this->bem->modifiers();
 
         // Apply the modifiers.
         if ($modifiers) {

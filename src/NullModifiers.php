@@ -17,7 +17,7 @@ class NullModifiers implements Modifiers
     /**
      * @inheritdoc
      */
-    public function stringify(): string
+    public function __toString(): string
     {
         return '';
     }
