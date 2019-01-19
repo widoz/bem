@@ -43,7 +43,7 @@ class Factory
         $filter = new Filter();
         $value = new Standard($bem, $filter);
 
-        return new Service($bem, $value);
+        return new Service($bem, $value, $filter);
     }
 
     /**

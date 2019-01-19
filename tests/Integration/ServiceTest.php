@@ -4,6 +4,7 @@
 namespace Widoz\Bem\Tests\Integration;
 
 use Widoz\Bem\Data;
+use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\Service;
@@ -13,8 +14,9 @@ class ServiceTest extends TestCase
     public function testInstance()
     {
         $bem = new Data('block');
-        $value = new Standard($bem);
-        $testee = new Service($bem, $value);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
 
         self::assertInstanceOf(Service::class, $testee);
     }
@@ -22,8 +24,9 @@ class ServiceTest extends TestCase
     public function testServiceValueElement()
     {
         $bem = new Data('block');
-        $value = new Standard($bem);
-        $testee = new Service($bem, $value);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
 
         $response = $testee
             ->forElement('element')
@@ -35,8 +38,9 @@ class ServiceTest extends TestCase
     public function testServiceValueModifiers()
     {
         $bem = new Data('block');
-        $value = new Standard($bem);
-        $testee = new Service($bem, $value);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
 
         $response = $testee
             ->withModifiers(['modifier'])

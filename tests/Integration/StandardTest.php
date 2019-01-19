@@ -6,6 +6,7 @@ namespace Widoz\Bem\Tests\Integration;
 use Brain\Monkey\Functions;
 use Widoz\Bem\Data;
 use Widoz\Bem\BlockModifiers;
+use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use ProjectTestsHelper\Phpunit\TestCase;
 
@@ -14,7 +15,8 @@ class StandardTest extends TestCase
     public function testToString()
     {
         $bem = new Data('block', 'element');
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         echo $testee;
 
@@ -24,7 +26,8 @@ class StandardTest extends TestCase
     public function testElement()
     {
         $bem = new Data('block', 'element');
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         $response = $testee->value();
 
@@ -35,7 +38,8 @@ class StandardTest extends TestCase
     {
         $modifiers = new BlockModifiers(['modifier'], 'block');
         $bem = new Data('block', 'element', $modifiers);
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         Functions\when('apply_filters')
             ->returnArg(2);
@@ -62,7 +66,8 @@ class StandardTest extends TestCase
             'block'
         );
         $bem = new Data('block', 'element', $modifiers);
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         $response = $testee->value();
 

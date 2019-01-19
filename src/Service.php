@@ -25,14 +25,20 @@ class Service
     private $value;
 
     /**
+     * @var Filter
+     */
+    private $filter;
+
+    /**
      * Service constructor
      * @param Bem $bem
      * @param Valuable $value
      */
-    public function __construct(Bem $bem, Valuable $value)
+    public function __construct(Bem $bem, Valuable $value, Filter $filter)
     {
         $this->bem = $bem;
         $this->value = $value;
+        $this->filter = $filter;
     }
 
     /**
@@ -71,6 +77,6 @@ class Service
 
         $bem = new $bemClass($block, $newElement, $newBlockModifiers);
 
-        return new $valueClass($bem);
+        return new $valueClass($bem, $this->filter);
     }
 }

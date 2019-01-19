@@ -14,6 +14,7 @@ namespace Widoz\Bem\Tests\Unit;
 
 use Brain\Monkey\Filters;
 use Widoz\Bem\Bem;
+use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use ProjectTestsHelper\Phpunit\TestCase;
 
@@ -22,7 +23,8 @@ class StandardTest extends TestCase
     public function testInstance()
     {
         $bem = $this->createMock(Bem::class);
-        $testee = new Standard($bem);
+        $filter = $this->createMock(Filter::class);
+        $testee = new Standard($bem, $filter);
 
         $this->assertInstanceOf(Standard::class, $testee);
     }
@@ -30,10 +32,12 @@ class StandardTest extends TestCase
     public function testFilterIsApplied()
     {
         $bem = $this->createMock(Bem::class);
-        $testee = new Standard($bem);
+        $filter = $this->createMock(Filter::class);
+        $testee = new Standard($bem, $filter);
 
-        Filters\expectApplied(Standard::FILTER_VALUE)
-            ->once();
+        $filter
+            ->expects($this->once())
+            ->method('apply');
 
         $testee->value();
 
