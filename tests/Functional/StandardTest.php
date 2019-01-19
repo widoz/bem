@@ -10,9 +10,8 @@
  */
 declare(strict_types=1);
 
-namespace Widoz\Bem\Tests\Unit;
+namespace Widoz\Bem\Tests\Functional;
 
-use Brain\Monkey\Filters;
 use Widoz\Bem\Bem;
 use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;

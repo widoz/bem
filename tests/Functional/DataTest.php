@@ -1,7 +1,6 @@
 <?php # -*- coding: utf-8 -*-
-// phpcs:disable
 
-namespace Widoz\Bem\Tests\Unit;
+namespace Widoz\Bem\Tests\Functional;
 
 use Widoz\Bem\Data;
 use ProjectTestsHelper\Phpunit\TestCase;
