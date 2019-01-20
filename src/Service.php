@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-class Service implements Stringable
+class Service
 {
     /**
      * @var Bem
@@ -42,11 +42,11 @@ class Service implements Stringable
     }
 
     /**
-     * @inheritdoc
+     * @return Valuable
      */
-    public function __toString(): string
+    public function value(): Valuable
     {
-        return $this->bem->block();
+        return $this->value;
     }
 
     /**
