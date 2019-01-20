@@ -8,6 +8,7 @@ use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\Service;
+use Widoz\Bem\Valuable;
 
 class ServiceTest extends TestCase
 {
@@ -19,6 +20,16 @@ class ServiceTest extends TestCase
         $testee = new Service($bem, $value, $filter);
 
         self::assertInstanceOf(Service::class, $testee);
+    }
+
+    public function testValue()
+    {
+        $bem = new Data('block');
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
+
+        self::assertInstanceOf(Valuable::class, $testee->value());
     }
 
     public function testServiceValueElement()
