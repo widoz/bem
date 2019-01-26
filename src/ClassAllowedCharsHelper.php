@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-trait ClassAllowedCharsTrait
+trait ClassAllowedCharsHelper
 {
     /**
      * @param array $strings

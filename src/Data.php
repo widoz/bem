@@ -14,7 +14,7 @@ namespace Widoz\Bem;
 
 class Data implements Bem
 {
-    use ClassAllowedCharsTrait;
+    use ClassAllowedCharsHelper;
 
     /**
      * Block

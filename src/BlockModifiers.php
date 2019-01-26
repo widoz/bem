@@ -14,7 +14,7 @@ namespace Widoz\Bem;
 
 class BlockModifiers implements Modifiers
 {
-    use ClassAllowedCharsTrait;
+    use ClassAllowedCharsHelper;
 
     /**
      * @var array
