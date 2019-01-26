@@ -13,23 +13,29 @@ declare(strict_types=1);
 namespace Widoz\Bem;
 
 /**
- * Interface Factory
- *
- * @author Guido Scialfa <dev@guidoscialfa.com>
+ * Standard Factory
  */
-interface Factory
+class StandardFactory implements Factory
 {
+    use StandardFactoryHelper;
+
     /**
      * @param string $block
      * @param string $element
      * @param array $modifiers
      * @return Standard
      */
-    public function create(string $block, string $element = '', array $modifiers = []): Valuable;
+    public function create(string $block, string $element = '', array $modifiers = []): Valuable
+    {
+        return $this->createStandard($block, $element, $modifiers);
+    }
 
     /**
      * @param string $block
      * @return Service
      */
-    public function createService(string $block): Service;
+    public function createService(string $block): Service
+    {
+        return $this->createServiceForStandard($block);
+    }
 }
