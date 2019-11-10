@@ -15,11 +15,8 @@
         "issues": "https://github.com/widoz/bem/issues"
     },
     "autoload": {
-        "classmap": [
-            "src/"
-        ],
         "psr-4": {
-            "Widoz\\Bem\\": "src"
+            "Widoz\\Bem\\": "src/"
         }
     },
     "autoload-dev": {
@@ -31,8 +28,6 @@
         "php": ">=7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~6.5.5",
-        "brain/monkey": "dev-master",
         "inpsyde/php-coding-standards": "^0.13.0@dev",
         "widoz/project-tests-helper": "dev-master"
     },
