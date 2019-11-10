@@ -29,7 +29,7 @@
     },
     "require": {
         "php": ">=7.0",
-        "widoz/hooks-interfaces": "dev-master"
+        "widoz/hooks-interfaces": "^0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "~6.5.5",
