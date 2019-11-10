@@ -3,20 +3,25 @@
 
 namespace Widoz\Bem\Tests\Integration;
 
-use Brain\Monkey\Functions;
+use PHPUnit\Framework\MockObject\MockObject;
 use Widoz\Bem\Data;
 use Widoz\Bem\BlockModifiers;
-use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Hooks\Dispatch\RemoveCapableHookDispatcher;
+use function Brain\Monkey\Functions\when;
 
 class StandardTest extends TestCase
 {
     public function testToString()
     {
         $bem = new Data('block', 'element');
-        $filter = new Filter();
-        $testee = new Standard($bem, $filter);
+        /** @var MockObject|RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $testee = new Standard($bem, $removeCapableHookDispatcher);
+
+        // Expect to return a valid value from filter
+        $removeCapableHookDispatcher->method('__invoke')->willReturnArgument(1);
 
         echo $testee;
 
@@ -26,8 +31,12 @@ class StandardTest extends TestCase
     public function testElement()
     {
         $bem = new Data('block', 'element');
-        $filter = new Filter();
-        $testee = new Standard($bem, $filter);
+        /** @var MockObject|RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $testee = new Standard($bem, $removeCapableHookDispatcher);
+
+        // Expect to return a valid value from filter
+        $removeCapableHookDispatcher->method('__invoke')->willReturnArgument(1);
 
         $response = $testee->value();
 
@@ -38,11 +47,11 @@ class StandardTest extends TestCase
     {
         $modifiers = new BlockModifiers(['modifier'], 'block');
         $bem = new Data('block', 'element', $modifiers);
-        $filter = new Filter();
-        $testee = new Standard($bem, $filter);
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $testee = new Standard($bem, $removeCapableHookDispatcher);
 
-        Functions\when('apply_filters')
-            ->returnArg(2);
+        // Expect to return a valid value from filter
+        $removeCapableHookDispatcher->method('__invoke')->willReturnArgument(1);
 
         $scope = $testee->value();
 
@@ -51,12 +60,10 @@ class StandardTest extends TestCase
 
     public function testSanitizeHtmlClassKeepOnlyOneSpaceBetweenClasses()
     {
-        \Brain\Monkey\Functions\when('apply_filters')
-            ->alias(function () {
+        when('apply_filters')->alias(function () {
                 return 'block  block--modifier  block--modifier-2';
             });
-        \Brain\Monkey\Functions\when('sanitize_html_class')
-            ->returnArg(1);
+        when('sanitize_html_class')->returnArg(1);
 
         $modifiers = new BlockModifiers(
             [
@@ -66,8 +73,12 @@ class StandardTest extends TestCase
             'block'
         );
         $bem = new Data('block', 'element', $modifiers);
-        $filter = new Filter();
-        $testee = new Standard($bem, $filter);
+        /** @var MockObject|RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $testee = new Standard($bem, $removeCapableHookDispatcher);
+
+        // Expect to return a valid value from filter
+        $removeCapableHookDispatcher->method('__invoke')->willReturnArgument(1);
 
         $response = $testee->value();
 

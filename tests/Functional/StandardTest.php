@@ -13,32 +13,34 @@ declare(strict_types=1);
 namespace Widoz\Bem\Tests\Functional;
 
 use Widoz\Bem\Bem;
-use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Hooks\Dispatch\RemoveCapableHookDispatcher;
 
 class StandardTest extends TestCase
 {
     public function testInstance()
     {
+        /** @var Bem $bem */
         $bem = $this->createMock(Bem::class);
-        $filter = $this->createMock(Filter::class);
-        $testee = new Standard($bem, $filter);
+        /** @var RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $standard = new Standard($bem, $removeCapableHookDispatcher);
 
-        $this->assertInstanceOf(Standard::class, $testee);
+        $this->assertInstanceOf(Standard::class, $standard);
     }
 
     public function testFilterIsApplied()
     {
+        /** @var Bem $bem */
         $bem = $this->createMock(Bem::class);
-        $filter = $this->createMock(Filter::class);
-        $testee = new Standard($bem, $filter);
+        /** @var RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $standard = new Standard($bem, $removeCapableHookDispatcher);
 
-        $filter
-            ->expects($this->once())
-            ->method('apply');
+        $removeCapableHookDispatcher->expects($this->once())->method('__invoke');
 
-        $testee->value();
+        $standard->value();
 
         self::assertTrue(true);
     }

@@ -3,31 +3,30 @@
 
 namespace Widoz\Bem\Tests\Integration;
 
-use Widoz\Bem\StandardFactory as Testee;
+use PHPUnit\Framework\MockObject\MockObject;
+use Widoz\Bem\StandardFactory;
 use Widoz\Bem\Service;
 use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\Valuable;
+use Widoz\Hooks\Dispatch\RemoveCapableHookDispatcher;
 
 class StandardFactoryTest extends TestCase
 {
-    public function testInstance()
-    {
-        $testee = new Testee();
-
-        self::assertInstanceOf(Testee::class, $testee);
-    }
-
     public function testCreateStandard()
     {
-        $testee = new Testee();
+        /** @var MockObject|RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $standardFactory = new StandardFactory($removeCapableHookDispatcher);
 
-        self::assertInstanceOf(Valuable::class, $testee->create('block'));
+        self::assertInstanceOf(Valuable::class, $standardFactory->create('block'));
     }
 
     public function testCreateServiceForStandard()
     {
-        $testee = new Testee();
+        /** @var MockObject|RemoveCapableHookDispatcher $removeCapableHookDispatcher */
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+        $standardFactory = new StandardFactory($removeCapableHookDispatcher);
 
-        self::assertInstanceOf(Service::class, $testee->createService('block'));
+        self::assertInstanceOf(Service::class, $standardFactory->createService('block'));
     }
 }

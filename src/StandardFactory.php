@@ -12,12 +12,26 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use Widoz\Hooks\Dispatch\RemoveCapableHookDispatcher;
+
 /**
  * Standard Factory
  */
 class StandardFactory implements Factory
 {
-    use StandardFactoryHelper;
+    /**
+     * @var RemoveCapableHookDispatcher
+     */
+    private $removeCapableHookDispatcher;
+
+    /**
+     * StandardFactory constructor.
+     * @param RemoveCapableHookDispatcher $removeCapableHookDispatcher
+     */
+    public function __construct(RemoveCapableHookDispatcher $removeCapableHookDispatcher)
+    {
+        $this->removeCapableHookDispatcher = $removeCapableHookDispatcher;
+    }
 
     /**
      * @param string $block
@@ -27,7 +41,10 @@ class StandardFactory implements Factory
      */
     public function create(string $block, string $element = '', array $modifiers = []): Valuable
     {
-        return $this->createStandard($block, $element, $modifiers);
+        $blockModifiers = $modifiers ? new BlockModifiers($modifiers, $block) : new NullModifiers();
+        $bem = new Data($block, $element, $blockModifiers);
+
+        return new Standard($bem, $this->removeCapableHookDispatcher);
     }
 
     /**
@@ -36,6 +53,9 @@ class StandardFactory implements Factory
      */
     public function createService(string $block): Service
     {
-        return $this->createServiceForStandard($block);
+        $bem = new Data($block);
+        $value = new Standard($bem, $this->removeCapableHookDispatcher);
+
+        return new Service($bem, $value, $this->removeCapableHookDispatcher);
     }
 }

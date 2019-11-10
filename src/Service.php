@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use Widoz\Hooks\Dispatch\HookDispatcher;
+
 class Service
 {
     /**
@@ -25,20 +27,21 @@ class Service
     private $value;
 
     /**
-     * @var Filter
+     * @var HookDispatcher
      */
-    private $filter;
+    private $hookDispatcher;
 
     /**
      * Service constructor
      * @param Bem $bem
      * @param Valuable $value
+     * @param HookDispatcher $hookDispatcher
      */
-    public function __construct(Bem $bem, Valuable $value, Filter $filter)
+    public function __construct(Bem $bem, Valuable $value, HookDispatcher $hookDispatcher)
     {
         $this->bem = $bem;
         $this->value = $value;
-        $this->filter = $filter;
+        $this->hookDispatcher = $hookDispatcher;
     }
 
     /**
@@ -85,6 +88,6 @@ class Service
 
         $bem = new $bemClass($block, $newElement, $newBlockModifiers);
 
-        return new $valueClass($bem, $this->filter);
+        return new $valueClass($bem, $this->hookDispatcher);
     }
 }

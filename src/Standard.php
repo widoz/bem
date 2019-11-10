@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use Widoz\Hooks\Dispatch\RemoveCapableHookDispatcher;
+
 class Standard implements Valuable
 {
     const FILTER_VALUE = 'bem.value';
@@ -22,19 +24,19 @@ class Standard implements Valuable
     private $bem;
 
     /**
-     * @var Filter
+     * @var RemoveCapableHookDispatcher
      */
-    private $filter;
+    private $removeCapableHookDispatcher;
 
     /**
      * Standard constructor
      * @param Bem $bem
-     * @param Filter $filter
+     * @param RemoveCapableHookDispatcher $removeCapableHookDispatcher
      */
-    public function __construct(Bem $bem, Filter $filter)
+    public function __construct(Bem $bem, RemoveCapableHookDispatcher $removeCapableHookDispatcher)
     {
         $this->bem = $bem;
-        $this->filter = $filter;
+        $this->removeCapableHookDispatcher = $removeCapableHookDispatcher;
     }
 
     /**
@@ -58,7 +60,7 @@ class Standard implements Valuable
             $bem .= "__{$element}";
         }
 
-        $bem = $this->filter->apply($bem, self::FILTER_VALUE);
+        $bem = ($this->removeCapableHookDispatcher)(self::FILTER_VALUE, $bem);
         // Clean multiple spaces.
         $bem = preg_replace('/\s{2,}/', ' ', $bem);
 

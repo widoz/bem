@@ -13,28 +13,25 @@ declare(strict_types=1);
 namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\Bem;
-use Widoz\Bem\Filter;
-use Widoz\Bem\Standard as Testee;
 use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Bem\Standard;
+use Widoz\Hooks\Dispatch\RemoveCapableHookDispatcher;
 
 class StandardTest extends TestCase
 {
     public function testFilterIsApplied()
     {
         $bem = $this->createMock(Bem::class);
-        $filter = $this->createMock(Filter::class);
-        $testee = $this
-            ->getMockBuilder(Testee::class)
-            ->setConstructorArgs([$bem, $filter])
+        $removeCapableHookDispatcher = $this->createMock(RemoveCapableHookDispatcher::class);
+
+        $standard = $this
+            ->getMockBuilder(Standard::class)
+            ->setConstructorArgs([$bem, $removeCapableHookDispatcher])
             ->setMethodsExcept(['value'])
             ->getMock();
 
-        $filter
-            ->expects($this->once())
-            ->method('apply');
+        $removeCapableHookDispatcher->expects($this->once())->method('__invoke');
 
-        $testee->value();
-
-        self::assertTrue(true);
+        $standard->value();
     }
 }
