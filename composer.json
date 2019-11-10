@@ -28,19 +28,24 @@
         }
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "widoz/hooks-interfaces": "^0.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "~6.5.5",
-        "brain/monkey": "dev-master",
-        "inpsyde/php-coding-standards": "^0.13.0@dev",
-        "widoz/project-tests-helper": "dev-master"
+        "phpunit/phpunit": "^7",
+        "brain/monkey": "^2.0",
+        "inpsyde/php-coding-standards": "^0.13",
+        "widoz/project-tests-helper": "dev-phpunit-7"
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev",
             "dev-develop": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.1"
         }
     }
 }
