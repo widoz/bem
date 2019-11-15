@@ -31,9 +31,9 @@ class Data implements Bem
     private $element;
 
     /**
-     * Modifier
+     * Modifiers
      *
-     * @var BlockModifiers The array contains the modifier strings
+     * @var Modifiers|null The array contains the modifier strings
      */
     private $modifiers;
 

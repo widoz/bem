@@ -27,16 +27,16 @@ class Filter
     public function apply(string $bem, string $filter): string
     {
         // Allow to be used outside of WordPress.
-        if (\function_exists('apply_filters')) {
+        if (\function_exists('apply_filters_ref_array')) {
             /**
              * Bem Filter
              *
              * Filter the value string before it is returned.
              *
-             * @param string $bem The bem value.
-             * @param Valuable $this The instance of the class.
+             * @param string $filter The hook name.
+             * @param array{string, Valuable} $ref_array The bem value and the instance of this class.
              */
-            $bem = (string)apply_filters($filter, $bem, $this);
+            $bem = (string)\apply_filters_ref_array($filter, [$bem, $this]);
         }
 
         return $bem;
