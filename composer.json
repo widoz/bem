@@ -15,11 +15,8 @@
         "issues": "https://github.com/widoz/bem/issues"
     },
     "autoload": {
-        "classmap": [
-            "src/"
-        ],
         "psr-4": {
-            "Widoz\\Bem\\": "src"
+            "Widoz\\Bem\\": "src/"
         }
     },
     "autoload-dev": {

@@ -60,7 +60,7 @@ class Standard implements Valuable
 
         $bem = $this->filter->apply($bem, self::FILTER_VALUE);
         // Clean multiple spaces.
-        $bem = preg_replace('/\s{2,}/', ' ', $bem);
+        $bem = (string)preg_replace('/\s{2,}/', ' ', $bem);
 
         return $bem;
     }
