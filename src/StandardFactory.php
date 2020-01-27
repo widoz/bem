@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use InvalidArgumentException;
+
 /**
  * Standard Factory
  */
@@ -23,6 +25,8 @@ class StandardFactory implements Factory
      * @param string $block
      * @param string $element
      * @param array $modifiers
+     *
+     * @throws InvalidArgumentException
      * @return Standard
      */
     public function create(string $block, string $element = '', array $modifiers = []): Valuable
@@ -32,6 +36,8 @@ class StandardFactory implements Factory
 
     /**
      * @param string $block
+     *
+     * @throws InvalidArgumentException
      * @return Service
      */
     public function createService(string $block): Service

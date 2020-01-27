@@ -4,7 +4,6 @@ matrix:
   allow_failures:
     - php: nightly
   include:
-    - php: 7.0
     - php: 7.1
     - php: 7.2
     - php: 7.3
@@ -16,6 +15,8 @@ install:
 
 script:
     - find src -name '*.php' | xargs -n 1 -P4 php -l
+    - ./vendor/bin/phpcs
+    - ./vendor/bin/psalm
     - ./vendor/bin/phpunit --coverage-clover=coverage/report/coverage.xml
 
 after_success:

@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use InvalidArgumentException;
+
 /**
  * Standard Factory Helper
  *
@@ -23,6 +25,8 @@ trait StandardFactoryHelper
      * @param string $block
      * @param string $element
      * @param array $modifiers
+     *
+     * @throws InvalidArgumentException
      * @return Standard
      */
     private function createStandard(
@@ -30,7 +34,6 @@ trait StandardFactoryHelper
         string $element = '',
         array $modifiers = []
     ): Standard {
-
         $blockModifiers = $modifiers ? new BlockModifiers($modifiers, $block) : new NullModifiers();
         $bem = new Data($block, $element, $blockModifiers);
         $filter = new Filter();
@@ -40,6 +43,8 @@ trait StandardFactoryHelper
 
     /**
      * @param string $block
+     *
+     * @throws InvalidArgumentException
      * @return Service
      */
     private function createServiceForStandard(string $block): Service

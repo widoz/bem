@@ -31,8 +31,10 @@ class Service
 
     /**
      * Service constructor
+     *
      * @param Bem $bem
      * @param Valuable $value
+     * @param Filter $filter
      */
     public function __construct(Bem $bem, Valuable $value, Filter $filter)
     {

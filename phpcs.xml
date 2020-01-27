@@ -8,5 +8,7 @@
     <file>./src</file>
     <file>./tests</file>
 
-    <rule ref="Inpsyde"/>
+    <rule ref="Inpsyde">
+        <exclude name="PHPCompatibility.FunctionDeclarations.NewNullableTypes"/>
+    </rule>
 </ruleset>

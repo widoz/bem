@@ -26,7 +26,7 @@ The classes now only check against the value passed in construction phase.
 
 ## Requirements
 
-PHP >= 7.0.0
+PHP >= 7.1.33
 
 ## What is BEM
 
@@ -55,10 +55,10 @@ For more information have a look at: [getbem](http://getbem.com/)
 
 ## How it works
 
-To use the bem value you must create a instance of a class that implements `Valuable` interface such as `Standard` then 
+To use the bem value you must create a instance of a class that implements `Valuable` interface such as `Standard` then
 call `value` method.
 
-Since version 1.0.0 isn't possible to retrieve the bem's components separately, this is because the 
+Since version 1.0.0 isn't possible to retrieve the bem's components separately, this is because the
 responsibility to hold data has been moved under a different class that implements `Bem` interface.
 
 Also, the `modifiers` are no longer an array but an instance of a class that implements `Modifiable`.
@@ -93,7 +93,7 @@ $standardBem = Factory::createStandard('block', 'element', ['modifier']);
 Then you can use the object as usual, by calling the method `value`.
 
 **Note:**
-Even though it's possible to pass all of the parameters to the class that implements `Bem` interface, 
+Even though it's possible to pass all of the parameters to the class that implements `Bem` interface,
 when both *block* and *modifiers* are passed the *element* is ignored.
 
 This is right and in line with the BEM requirements. Infact isn't possible to have a BEM string like `block block--modifier__element`.
@@ -115,7 +115,7 @@ $service = Factory::createServiceForStandard('block');
 Then you can make use of `forElement` and `withModifiers` methods to update the bem object.
 
 ```php
-class MyBlockClass 
+class MyBlockClass
 {
     private $bemService;
 
@@ -123,7 +123,7 @@ class MyBlockClass
     {
         $this->bemService = $bemService;
     }
-    
+
     public function buildComponentElement()
     {
         $element = $this->bemService->forElement('element');
@@ -135,7 +135,7 @@ class MyBlockClass
             </div>
         <?php
     }
-    
+
     public function buildBlockVariant()
     {
         $blockVariant = $this->bemService->withModifiers(['modifier']);

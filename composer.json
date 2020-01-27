@@ -26,17 +26,18 @@
     }
   },
   "require": {
-    "php": ">=7.0.33"
+    "php": ">=7.1.33"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6",
-    "brain/monkey": "^2.3",
-    "inpsyde/php-coding-standards": "^0.13.0@dev",
-    "widoz/project-tests-helper": "dev-phpunit-6"
+    "phpunit/phpunit": "^7",
+    "brain/monkey": "^2",
+    "inpsyde/php-coding-standards": "^0.13",
+    "widoz/project-tests-helper": "dev-phpunit-7",
+    "vimeo/psalm": "^3.8"
   },
   "config": {
     "platform": {
-      "php": "7.0.33"
+      "php": "7.1.33"
     }
   }
 }

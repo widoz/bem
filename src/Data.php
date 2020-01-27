@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use InvalidArgumentException;
+
 class Data implements Bem
 {
     use ClassAllowedCharsHelper;
@@ -39,16 +41,15 @@ class Data implements Bem
 
     /**
      * Data constructor
+     *
      * @param string $block
      * @param string $element
      * @param Modifiers|null $modifiers
+     *
+     * @throws InvalidArgumentException
      */
-    public function __construct(
-        string $block,
-        string $element = '',
-        Modifiers $modifiers = null
-    ) {
-
+    public function __construct(string $block, string $element = '', Modifiers $modifiers = null)
+    {
         $this->block = $this->ensureStringClass($block);
         $this->element = $this->ensureStringClass($element);
         $this->modifiers = $modifiers;
