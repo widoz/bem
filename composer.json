@@ -35,8 +35,8 @@
     "widoz/project-tests-helper": "dev-phpunit-6"
   },
   "config": {
-    "php": {
-      "platform": "7.0.33"
+    "platform": {
+      "php": "7.0.33"
     }
   }
 }
