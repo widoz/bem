@@ -1,4 +1,4 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 // phpcs:disable
 
 namespace Widoz\Bem\Tests\Integration;
