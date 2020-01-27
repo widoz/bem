@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use ArrayIterator;
+
 class BlockModifiers implements Modifiers
 {
     use ClassAllowedCharsHelper;
@@ -42,7 +44,7 @@ class BlockModifiers implements Modifiers
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->modifiers);
+        return new ArrayIterator($this->modifiers);
     }
 
     /**

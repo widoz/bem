@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use ArrayIterator;
+
 class NullModifiers implements Modifiers
 {
     /**
@@ -27,6 +29,6 @@ class NullModifiers implements Modifiers
      */
     public function getIterator()
     {
-        return new \ArrayIterator([]);
+        return new ArrayIterator([]);
     }
 }

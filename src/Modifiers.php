@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-interface Modifiers extends \IteratorAggregate, Stringable
+use IteratorAggregate;
+
+interface Modifiers extends IteratorAggregate, Stringable
 {
 }

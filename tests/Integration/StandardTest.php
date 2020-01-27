@@ -3,12 +3,13 @@
 
 namespace Widoz\Bem\Tests\Integration;
 
-use Brain\Monkey\Functions;
-use Widoz\Bem\Data;
+use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\BlockModifiers;
+use Widoz\Bem\Data;
 use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
-use ProjectTestsHelper\Phpunit\TestCase;
+
+use function Brain\Monkey\Functions\when;
 
 class StandardTest extends TestCase
 {
@@ -41,7 +42,7 @@ class StandardTest extends TestCase
         $filter = new Filter();
         $testee = new Standard($bem, $filter);
 
-        Functions\when('apply_filters')
+        when('apply_filters')
             ->returnArg(2);
 
         $scope = $testee->value();
@@ -51,11 +52,11 @@ class StandardTest extends TestCase
 
     public function testSanitizeHtmlClassKeepOnlyOneSpaceBetweenClasses()
     {
-        \Brain\Monkey\Functions\when('apply_filters')
+        when('apply_filters')
             ->alias(function () {
                 return 'block  block--modifier  block--modifier-2';
             });
-        \Brain\Monkey\Functions\when('sanitize_html_class')
+        when('sanitize_html_class')
             ->returnArg(1);
 
         $modifiers = new BlockModifiers(
