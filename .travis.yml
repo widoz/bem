@@ -1,14 +1,22 @@
 language: php
-php:
-    - '7.0'
-    - '7.1'
-    - '7.2'
-    - '7.3'
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+  include:
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
+    - php: 7.3
+    - php: 7.4
+    - php: nightly
+
 install:
     composer install
 
 script:
-    - vendor/bin/phpunit --coverage-clover=coverage/report/coverage.xml
+    - find src -name '*.php' | xargs -n 1 -P4 php -l
+    - ./vendor/bin/phpunit --coverage-clover=coverage/report/coverage.xml
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
