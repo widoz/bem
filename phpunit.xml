@@ -3,8 +3,6 @@
         colors="true"
         beStrictAboutOutputDuringTests="true"
         beStrictAboutChangesToGlobalState="true"
-        backupGlobals="true"
-        backupStaticAttributes="true"
         processIsolation="true"
         stopOnError="false"
         stopOnFailure="false">
