@@ -1,6 +1,6 @@
 # BEM Library
 
-[![Build Status](https://img.shields.io/travis/widoz/bem/develop.svg?style=flat-square)](https://travis-ci.org/widoz/bem)
+![Continuous Integration](https://github.com/widoz/bem/workflows/Continuous%20Integration/badge.svg)
 [![codecov](https://img.shields.io/codecov/c/github/widoz/bem/develop.svg?style=flat-square)](https://codecov.io/gh/widoz/bem)
 
 Bem is a library that allow you to define BEM style class attribute values to use in your markup.

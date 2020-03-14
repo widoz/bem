@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfa6be6e581fad4382afc66c3b2d00de",
+    "content-hash": "e02d70be6ac3084c3a4e1a7e5aaa8977",
     "packages": [],
     "packages-dev": [
         {
@@ -621,6 +621,56 @@
                 "server"
             ],
             "time": "2019-06-23T21:03:50+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^2.9.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2019-12-12T13:22:17+00:00"
         },
         {
             "name": "gitonomy/gitlib",
@@ -3873,22 +3923,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/widoz/project-tests-helper.git",
-                "reference": "210065b42356dd5420ca2895acba7c228a79e27c"
+                "reference": "257d21f6ee6e2f7248a287f0637b63104f1cac6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/widoz/project-tests-helper/zipball/210065b42356dd5420ca2895acba7c228a79e27c",
-                "reference": "210065b42356dd5420ca2895acba7c228a79e27c",
+                "url": "https://api.github.com/repos/widoz/project-tests-helper/zipball/257d21f6ee6e2f7248a287f0637b63104f1cac6d",
+                "reference": "257d21f6ee6e2f7248a287f0637b63104f1cac6d",
                 "shasum": ""
             },
             "require": {
-                "brain/monkey": "~2.3",
-                "php": ">=7.1",
-                "phpunit/phpunit": "^7"
+                "php": ">=7.1"
             },
             "require-dev": {
+                "brain/monkey": "~2.3",
                 "composer/composer": "^1.9@dev",
-                "inpsyde/php-coding-standards": "^0.13.0@dev"
+                "fzaninotto/faker": "^1.9@dev",
+                "inpsyde/php-coding-standards": "^0.13.0@dev",
+                "phpunit/phpunit": "^7"
             },
             "type": "library",
             "autoload": {
@@ -3910,7 +3961,7 @@
                 }
             ],
             "description": "Php Tests Helper library to include into your projects",
-            "time": "2019-09-25T11:14:52+00:00"
+            "time": "2020-02-28T10:31:32+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",

@@ -148,3 +148,6 @@ composer.phar
 
 # Npm
 package-lock.json
+
+### Coverage ###
+./tests/coverage

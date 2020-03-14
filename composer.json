@@ -22,19 +22,20 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Widoz\\Bem\\Tests\\": "tests/"
+      "Widoz\\Bem\\Tests\\": "tests/php/"
     }
   },
   "require": {
     "php": ">=7.1.33"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7",
+    "phpunit/phpunit": "^7.5",
     "brain/monkey": "^2",
     "inpsyde/php-coding-standards": "^0.13",
     "widoz/project-tests-helper": "dev-phpunit-7",
     "vimeo/psalm": "^3.8",
-    "phpro/grumphp": "^0.16.2"
+    "phpro/grumphp": "^0.16.2",
+    "fzaninotto/faker": "^1.9"
   },
   "config": {
     "platform": {

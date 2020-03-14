@@ -7,6 +7,7 @@
 
     <file>./src</file>
     <file>./tests</file>
+    <exclude-pattern>./tests/coverage</exclude-pattern>
 
     <rule ref="Inpsyde">
         <exclude name="PHPCompatibility.FunctionDeclarations.NewNullableTypes"/>
