@@ -33,7 +33,8 @@
     "brain/monkey": "^2",
     "inpsyde/php-coding-standards": "^0.13",
     "widoz/project-tests-helper": "dev-phpunit-7",
-    "vimeo/psalm": "^3.8"
+    "vimeo/psalm": "^3.8",
+    "phpro/grumphp": "^0.16.2"
   },
   "config": {
     "platform": {
