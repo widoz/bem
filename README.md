@@ -175,6 +175,6 @@ To report a bug simply open an [issue on github project](https://github.com/wido
 
 ## License
 
-Since version 1.0.0 the license is MIT and no longer GPL-1.0.0
+This library is license under MIT
 
 For more info read the `LICENSE` file
