@@ -14,11 +14,21 @@ namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\Bem;
 use Widoz\Bem\Filter;
+use Widoz\Bem\Standard;
 use Widoz\Bem\Standard as Testee;
 use ProjectTestsHelper\Phpunit\TestCase;
 
 class StandardTest extends TestCase
 {
+    public function testInstance()
+    {
+        $bem = $this->createMock(Bem::class);
+        $filter = $this->createMock(Filter::class);
+        $testee = new Standard($bem, $filter);
+
+        $this->assertInstanceOf(Standard::class, $testee);
+    }
+
     public function testFilterIsApplied()
     {
         $bem = $this->createMock(Bem::class);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Widoz\Bem\Tests\Functional;
+namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\BlockModifiers;
 use ProjectTestsHelper\Phpunit\TestCase;

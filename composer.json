@@ -22,7 +22,9 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Widoz\\Bem\\Tests\\": "tests/php/"
+      "Widoz\\Bem\\Tests\\": "tests/php/",
+      "Widoz\\Bem\\Tests\\Unit\\": "tests/php/Unit",
+      "Widoz\\Bem\\Tests\\Integration\\": "tests/php/Integration"
     }
   },
   "require": {
