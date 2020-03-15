@@ -1,0 +1,22 @@
+parameters:
+  tasks:
+    phpcs:
+      whitelist_patterns:
+        - /src/
+        - /tests/
+    git_commit_message:
+      allow_empty_message: false
+      enforce_capitalized_subject: true
+      enforce_no_subject_punctuations: true
+      enforce_single_lined_subject: true
+      max_subject_width: 50
+      max_body_width: 72
+      multiline: true
+    psalm:
+      config: ./psalm.xml
+      ignore_patterns:
+        - docker
+        - .psalm
+        - vendor
+        - tests
+      show_info: false

@@ -1,21 +1,23 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 // phpcs:disable
 
 namespace Widoz\Bem\Tests\Integration;
 
-use Brain\Monkey\Filters;
-use Brain\Monkey\Functions;
-use Widoz\Bem\Data;
+use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\BlockModifiers;
+use Widoz\Bem\Data;
+use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
-use PHPUnit\Framework\TestCase;
+
+use function Brain\Monkey\Functions\when;
 
 class StandardTest extends TestCase
 {
     public function testToString()
     {
         $bem = new Data('block', 'element');
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         echo $testee;
 
@@ -25,7 +27,8 @@ class StandardTest extends TestCase
     public function testElement()
     {
         $bem = new Data('block', 'element');
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         $response = $testee->value();
 
@@ -36,9 +39,10 @@ class StandardTest extends TestCase
     {
         $modifiers = new BlockModifiers(['modifier'], 'block');
         $bem = new Data('block', 'element', $modifiers);
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
-        Functions\when('apply_filters')
+        when('apply_filters')
             ->returnArg(2);
 
         $scope = $testee->value();
@@ -48,11 +52,11 @@ class StandardTest extends TestCase
 
     public function testSanitizeHtmlClassKeepOnlyOneSpaceBetweenClasses()
     {
-        \Brain\Monkey\Functions\when('apply_filters')
+        when('apply_filters')
             ->alias(function () {
                 return 'block  block--modifier  block--modifier-2';
             });
-        \Brain\Monkey\Functions\when('sanitize_html_class')
+        when('sanitize_html_class')
             ->returnArg(1);
 
         $modifiers = new BlockModifiers(
@@ -63,7 +67,8 @@ class StandardTest extends TestCase
             'block'
         );
         $bem = new Data('block', 'element', $modifiers);
-        $testee = new Standard($bem);
+        $filter = new Filter();
+        $testee = new Standard($bem, $filter);
 
         $response = $testee->value();
 

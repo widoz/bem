@@ -1,20 +1,14 @@
-<?php # -*- coding: utf-8 -*-
-/*
- * This file is part of the Bem package.
- *
- * (c) Guido Scialfa <dev@guidoscialfa.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+<?php
 
 declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use ArrayIterator;
+
 class BlockModifiers implements Modifiers
 {
-    use ClassAllowedCharsTrait;
+    use ClassAllowedCharsHelper;
 
     /**
      * @var array
@@ -42,16 +36,16 @@ class BlockModifiers implements Modifiers
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->modifiers);
+        return new ArrayIterator($this->modifiers);
     }
 
     /**
      * @return string
      */
-    public function stringify(): string
+    public function __toString(): string
     {
         $scopeModified = array_reduce($this->modifiers, [$this, 'reduce'], '');
-        $value = preg_replace('/\s{2,}/', ' ', $scopeModified);
+        $value = (string)preg_replace('/\s{2,}/', ' ', $scopeModified);
 
         return trim($value);
     }

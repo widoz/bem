@@ -1,43 +1,47 @@
 {
-    "name": "widoz/bem",
-    "description": "Bem convention as class",
-    "type": "library",
-    "license": "GPL-2.0-only",
-    "authors": [
-        {
-            "name": "Guido Scialfa",
-            "email": "dev@guidoscialfa.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "homepage": "https://github.com/widoz/bem",
-    "support": {
-        "issues": "https://github.com/widoz/bem/issues"
-    },
-    "autoload": {
-        "classmap": [
-            "src/"
-        ],
-        "psr-4": {
-            "Widoz\\Bem\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Widoz\\Bem\\Tests\\": "tests/"
-        }
-    },
-    "require": {
-        "php": ">=7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~6.5.5",
-        "brain/monkey": "dev-master",
-        "inpsyde/php-coding-standards": "^0.13.0@dev"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
+  "name": "widoz/bem",
+  "description": "Bem convention as class",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Guido Scialfa",
+      "email": "dev@guidoscialfa.com"
     }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "homepage": "https://github.com/widoz/bem",
+  "support": {
+    "issues": "https://github.com/widoz/bem/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Widoz\\Bem\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Widoz\\Bem\\Tests\\": "tests/php/",
+      "Widoz\\Bem\\Tests\\Unit\\": "tests/php/Unit",
+      "Widoz\\Bem\\Tests\\Integration\\": "tests/php/Integration"
+    }
+  },
+  "require": {
+    "php": ">=7.1.33"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5",
+    "brain/monkey": "^2",
+    "inpsyde/php-coding-standards": "^0.13",
+    "widoz/project-tests-helper": "dev-phpunit-7",
+    "vimeo/psalm": "^3.8",
+    "phpro/grumphp": "^0.16.2",
+    "fzaninotto/faker": "^1.9"
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.33"
+    }
+  }
 }

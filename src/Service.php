@@ -1,12 +1,4 @@
-<?php # -*- coding: utf-8 -*-
-/*
- * This file is part of the Bem package.
- *
- * (c) Guido Scialfa <dev@guidoscialfa.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+<?php
 
 declare(strict_types=1);
 
@@ -25,14 +17,30 @@ class Service
     private $value;
 
     /**
+     * @var Filter
+     */
+    private $filter;
+
+    /**
      * Service constructor
+     *
      * @param Bem $bem
      * @param Valuable $value
+     * @param Filter $filter
      */
-    public function __construct(Bem $bem, Valuable $value)
+    public function __construct(Bem $bem, Valuable $value, Filter $filter)
     {
         $this->bem = $bem;
         $this->value = $value;
+        $this->filter = $filter;
+    }
+
+    /**
+     * @return Valuable
+     */
+    public function value(): Valuable
+    {
+        return $this->value;
     }
 
     /**
@@ -71,6 +79,6 @@ class Service
 
         $bem = new $bemClass($block, $newElement, $newBlockModifiers);
 
-        return new $valueClass($bem);
+        return new $valueClass($bem, $this->filter);
     }
 }

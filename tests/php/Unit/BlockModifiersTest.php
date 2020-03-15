@@ -1,10 +1,9 @@
-<?php # -*- coding: utf-8 -*-
-// phpcs:disable
+<?php
 
 namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\BlockModifiers;
-use PHPUnit\Framework\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 
 class BlockModifiersTest extends TestCase
 {
@@ -15,12 +14,10 @@ class BlockModifiersTest extends TestCase
         self::assertInstanceOf(BlockModifiers::class, $testee);
     }
 
-    public function testStringify()
+    public function testToString()
     {
         $testee = new BlockModifiers(['modifier', 'modifier-2'], 'block');
 
-        $response = $testee->stringify();
-
-        self::assertSame('block--modifier block--modifier-2', $response);
+        self::assertSame('block--modifier block--modifier-2', (string)$testee);
     }
 }

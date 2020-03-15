@@ -1,20 +1,14 @@
-<?php # -*- coding: utf-8 -*-
-/*
- * This file is part of the Bem package.
- *
- * (c) Guido Scialfa <dev@guidoscialfa.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+<?php
 
 declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+use InvalidArgumentException;
+
 class Data implements Bem
 {
-    use ClassAllowedCharsTrait;
+    use ClassAllowedCharsHelper;
 
     /**
      * Block
@@ -31,24 +25,23 @@ class Data implements Bem
     private $element;
 
     /**
-     * Modifier
+     * Modifiers
      *
-     * @var BlockModifiers The array contains the modifier strings
+     * @var Modifiers|null The array contains the modifier strings
      */
     private $modifiers;
 
     /**
      * Data constructor
+     *
      * @param string $block
      * @param string $element
      * @param Modifiers|null $modifiers
+     *
+     * @throws InvalidArgumentException
      */
-    public function __construct(
-        string $block,
-        string $element = '',
-        Modifiers $modifiers = null
-    ) {
-
+    public function __construct(string $block, string $element = '', Modifiers $modifiers = null)
+    {
         $this->block = $this->ensureStringClass($block);
         $this->element = $this->ensureStringClass($element);
         $this->modifiers = $modifiers;

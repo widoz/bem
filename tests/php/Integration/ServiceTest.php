@@ -1,29 +1,43 @@
-<?php # -*- coding: utf-8 -*-
+<?php
 // phpcs:disable
 
 namespace Widoz\Bem\Tests\Integration;
 
 use Widoz\Bem\Data;
+use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
-use Widoz\Bem\Tests\TestCase;
+use ProjectTestsHelper\Phpunit\TestCase;
 use Widoz\Bem\Service;
+use Widoz\Bem\Valuable;
 
 class ServiceTest extends TestCase
 {
     public function testInstance()
     {
         $bem = new Data('block');
-        $value = new Standard($bem);
-        $testee = new Service($bem, $value);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
 
         self::assertInstanceOf(Service::class, $testee);
+    }
+
+    public function testValue()
+    {
+        $bem = new Data('block');
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
+
+        self::assertInstanceOf(Valuable::class, $testee->value());
     }
 
     public function testServiceValueElement()
     {
         $bem = new Data('block');
-        $value = new Standard($bem);
-        $testee = new Service($bem, $value);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
 
         $response = $testee
             ->forElement('element')
@@ -35,8 +49,9 @@ class ServiceTest extends TestCase
     public function testServiceValueModifiers()
     {
         $bem = new Data('block');
-        $value = new Standard($bem);
-        $testee = new Service($bem, $value);
+        $filter = new Filter();
+        $value = new Standard($bem, $filter);
+        $testee = new Service($bem, $value, $filter);
 
         $response = $testee
             ->withModifiers(['modifier'])
