@@ -6,9 +6,6 @@ namespace Widoz\Bem;
 
 use InvalidArgumentException;
 
-/**
- * Standard Factory
- */
 class StandardFactory implements Factory
 {
     use StandardFactoryHelper;
