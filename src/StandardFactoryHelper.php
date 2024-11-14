@@ -21,6 +21,7 @@ trait StandardFactoryHelper
         string $element = '',
         array $modifiers = []
     ): Standard {
+
         $blockModifiers = $modifiers ? new BlockModifiers($modifiers, $block) : new NullModifiers();
         $bem = new Data($block, $element, $blockModifiers);
         $filter = new Filter();

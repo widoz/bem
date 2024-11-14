@@ -1,12 +1,13 @@
 <?php
-// phpcs:disable
+
+declare(strict_types=1);
 
 namespace Widoz\Bem\Tests\Integration;
 
 use Widoz\Bem\Data;
 use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
-use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Bem\Tests\TestCase;
 use Widoz\Bem\Service;
 use Widoz\Bem\Valuable;
 

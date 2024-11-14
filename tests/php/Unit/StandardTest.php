@@ -8,7 +8,7 @@ use Widoz\Bem\Bem;
 use Widoz\Bem\Filter;
 use Widoz\Bem\Standard;
 use Widoz\Bem\Standard as Testee;
-use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Bem\Tests\TestCase;
 
 class StandardTest extends TestCase
 {

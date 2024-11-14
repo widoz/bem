@@ -24,7 +24,8 @@ class Filter
              * Filter the value string before it is returned.
              *
              * @param string $filter The hook name.
-             * @param array{string, Valuable} $ref_array The bem value and the instance of this class.
+             * @param array{string, Valuable} $ref_array The bem value and the
+             * instance of this class.
              */
             $bem = (string)apply_filters_ref_array($filter, [$bem, $this]);
         }

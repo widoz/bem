@@ -6,7 +6,7 @@ namespace Widoz\Bem;
 
 class Standard implements Valuable
 {
-    const FILTER_VALUE = 'bem.value';
+    public const FILTER_VALUE = 'bem.value';
 
     /**
      * @var Bem
