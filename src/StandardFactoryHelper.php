@@ -6,11 +6,6 @@ namespace Widoz\Bem;
 
 use InvalidArgumentException;
 
-/**
- * Standard Factory Helper
- *
- * @author Guido Scialfa <dev@guidoscialfa.com>
- */
 trait StandardFactoryHelper
 {
     /**

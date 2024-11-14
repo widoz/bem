@@ -7,11 +7,6 @@ namespace Widoz\Bem;
 use function apply_filters_ref_array;
 use function function_exists;
 
-/**
- * Class Filter
- *
- * @author Guido Scialfa <dev@guidoscialfa.com>
- */
 class Filter
 {
     /**

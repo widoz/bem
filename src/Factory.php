@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
-/**
- * Interface Factory
- *
- * @author Guido Scialfa <dev@guidoscialfa.com>
- */
 interface Factory
 {
     /**
