@@ -9,11 +9,6 @@ use function function_exists;
 
 class Filter
 {
-    /**
-     * @param string $bem
-     * @param string $filter
-     * @return string
-     */
     public function apply(string $bem, string $filter): string
     {
         // Allow to be used outside of WordPress.

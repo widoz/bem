@@ -34,8 +34,6 @@ class Data implements Bem
     /**
      * Data constructor
      *
-     * @param string $block
-     * @param string $element
      * @param Modifiers|null $modifiers
      *
      * @throws InvalidArgumentException

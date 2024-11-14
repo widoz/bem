@@ -46,6 +46,7 @@
     "cs": "@php ./vendor/bin/phpcs",
     "cs:fix": "@php ./vendor/bin/phpcbf",
     "tests": "@php ./vendor/bin/phpunit",
-    "analisys": "@php ./vendor/bin/psalm --show-info=false"
+    "analisys": "@php ./vendor/bin/psalm --show-info=false --output-format=compact",
+    "analisys:ci": "@php ./vendor/bin/psalm --show-info=false --output-format=github"
   }
 }

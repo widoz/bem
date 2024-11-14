@@ -9,20 +9,20 @@ use InvalidArgumentException;
 trait ClassAllowedCharsHelper
 {
     /**
-     * @param array $strings
-     *
-     * @return array
+     * @param array<string> $strings
+     * @return array<string>
+     * @psalm-assert array<string> $strings
      */
     private function ensureArrayOfClassesStrings(array $strings): array
     {
-        array_walk($strings, [$this, 'ensureStringClass']);
+        foreach ($strings as &$string) {
+            $string = $this->ensureStringClass($string);
+        }
 
         return $strings;
     }
 
     /**
-     * @param string $string
-     * @return string
      * @throws InvalidArgumentException
      */
     private function ensureStringClass(string $string): string

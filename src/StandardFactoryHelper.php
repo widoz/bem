@@ -9,9 +9,7 @@ use InvalidArgumentException;
 trait StandardFactoryHelper
 {
     /**
-     * @param string $block
-     * @param string $element
-     * @param array $modifiers
+     * @param array<string> $modifiers
      *
      * @throws InvalidArgumentException
      * @return Standard
@@ -30,10 +28,7 @@ trait StandardFactoryHelper
     }
 
     /**
-     * @param string $block
-     *
      * @throws InvalidArgumentException
-     * @return Service
      */
     private function createServiceForStandard(string $block): Service
     {

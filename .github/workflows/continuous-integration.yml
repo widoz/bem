@@ -39,7 +39,7 @@ jobs:
         run: composer cs
 
       - name: Psalm
-        run: composer analisys
+        run: composer analisys:ci
 
       - name: PhpUnit
         run: composer tests

@@ -6,6 +6,10 @@ namespace Widoz\Bem;
 
 use IteratorAggregate;
 
+/**
+ * @template TValue
+ * @template-extends IteratorAggregate<array-key, TValue>
+ */
 interface Modifiers extends IteratorAggregate, Stringable
 {
 }

@@ -6,6 +6,9 @@ namespace Widoz\Bem;
 
 use InvalidArgumentException;
 
+/**
+ * @api
+ */
 class StandardFactory implements Factory
 {
     use StandardFactoryHelper;
@@ -13,7 +16,7 @@ class StandardFactory implements Factory
     /**
      * @param string $block
      * @param string $element
-     * @param array $modifiers
+     * @param array<string> $modifiers
      *
      * @throws InvalidArgumentException
      * @return Standard
@@ -24,10 +27,7 @@ class StandardFactory implements Factory
     }
 
     /**
-     * @param string $block
-     *
      * @throws InvalidArgumentException
-     * @return Service
      */
     public function createService(string $block): Service
     {

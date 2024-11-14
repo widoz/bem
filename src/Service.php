@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Widoz\Bem;
 
+/**
+ * @api
+ */
 class Service
 {
     /**
@@ -44,7 +47,6 @@ class Service
     }
 
     /**
-     * @param string $element
      * @return Valuable
      */
     public function forElement(string $element): Valuable
@@ -53,7 +55,7 @@ class Service
     }
 
     /**
-     * @param array $modifiers
+     * @param array<string> $modifiers
      * @return Valuable
      */
     public function withModifiers(array $modifiers): Valuable
@@ -63,7 +65,7 @@ class Service
 
     /**
      * @param string $element
-     * @param array $modifiers
+     * @param array<string> $modifiers
      * @return Valuable
      */
     private function clone(string $element = '', array $modifiers = []): Valuable
