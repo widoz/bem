@@ -143,6 +143,7 @@ node_modules
 
 
 ### Composer ###
+composer.lock
 composer.phar
 /vendor/
 
@@ -151,3 +152,9 @@ package-lock.json
 
 ### Coverage ###
 ./tests/coverage
+
+### Php Unit ###
+.phpunit.result.cache
+
+### Psalm ###
+.psalm

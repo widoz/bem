@@ -6,24 +6,22 @@ namespace Widoz\Bem;
 
 use ArrayIterator;
 
+/**
+ * @template-implements Modifiers<string>
+ */
 class BlockModifiers implements Modifiers
 {
     use ClassAllowedCharsHelper;
 
     /**
-     * @var array
+     * @var array<string>
      */
     private $modifiers;
 
-    /**
-     * @var string
-     */
-    private $block;
+    private string $block;
 
     /**
-     * BlockModifiers constructor
-     * @param array $modifiers
-     * @param string $block
+     * @param array<string> $modifiers
      */
     public function __construct(array $modifiers, string $block)
     {
@@ -31,17 +29,11 @@ class BlockModifiers implements Modifiers
         $this->block = $block;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new ArrayIterator($this->modifiers);
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         $scopeModified = array_reduce($this->modifiers, [$this, 'reduce'], '');
@@ -50,11 +42,6 @@ class BlockModifiers implements Modifiers
         return trim($value);
     }
 
-    /**
-     * @param string $carry
-     * @param string $item
-     * @return string
-     */
     private function reduce(string $carry, string $item): string
     {
         $carry .= ' ' . "{$this->block}--{$item}";

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Widoz\Bem\Tests\Unit;
 
 use Widoz\Bem\Data;
-use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Bem\Tests\TestCase;
 use Widoz\Bem\Modifiers;
 use Widoz\Bem\NullModifiers;
 

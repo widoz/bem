@@ -1,9 +1,10 @@
 <?php
-// phpcs:disable
+
+declare(strict_types=1);
 
 namespace Widoz\Bem\Tests\Integration;
 
-use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Bem\Tests\TestCase;
 use Widoz\Bem\BlockModifiers;
 use Widoz\Bem\Data;
 use Widoz\Bem\Filter;
@@ -53,7 +54,7 @@ class StandardTest extends TestCase
     public function testSanitizeHtmlClassKeepOnlyOneSpaceBetweenClasses()
     {
         when('apply_filters')
-            ->alias(function () {
+            ->alias(static function (): string {
                 return 'block  block--modifier  block--modifier-2';
             });
         when('sanitize_html_class')

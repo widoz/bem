@@ -6,6 +6,9 @@ namespace Widoz\Bem;
 
 use ArrayIterator;
 
+/**
+ * @template-implements Modifiers<string>
+ */
 class NullModifiers implements Modifiers
 {
     /**
@@ -19,7 +22,7 @@ class NullModifiers implements Modifiers
     /**
      * @inheritdoc
      */
-    public function getIterator()
+    public function getIterator(): ArrayIterator
     {
         return new ArrayIterator([]);
     }

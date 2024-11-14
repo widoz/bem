@@ -1,11 +1,12 @@
 <?php
-// phpcs:disable
+
+declare(strict_types=1);
 
 namespace Widoz\Bem\Tests\Integration;
 
 use Widoz\Bem\StandardFactory as Testee;
 use Widoz\Bem\Service;
-use ProjectTestsHelper\Phpunit\TestCase;
+use Widoz\Bem\Tests\TestCase;
 use Widoz\Bem\Valuable;
 
 class StandardFactoryTest extends TestCase
